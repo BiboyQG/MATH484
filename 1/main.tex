@@ -35,6 +35,24 @@
 
 \textbf{Solution:}
 
+\begin{itemize}
+    \item $f: [0,1] \to \mathbb{R}$, $f(x) = -(x-\frac{1}{3})^2$
+    
+    The strict global minimizer here is $x = 1$.
+    \item $f: [0,\infty) \to \mathbb{R}$, $f(x) = x$
+    
+    The strict global minimizer here is $x = 0$.
+    \item $f(x) = \lfloor|x|\rfloor$ ($f$ is the floor of the absolute value of $x$)
+    
+    The global minimizer here is $x \in (-1, 1)$. The local minimizer here is $x \in (\mathbb{R} \setminus \mathbb{Z})$.
+    \item $f: \mathbb{R} \to \mathbb{R}$, $f: (0,\infty) \to \mathbb{R}$ and $f(x) = \begin{cases} 
+        k & \text{if } k \in \mathbb{Z} \text{ and } x = 2^k \\
+        0 & \text{otherwise}
+    \end{cases}$
+
+    The global minimizer and local minimizer here are $x \in (0, \infty) \setminus \{2^k \mid k \in \mathbb{N}\}$.
+\end{itemize}
+
 \newpage
 
 \section*{Exercise 2}
@@ -43,6 +61,58 @@
 (Do not assume that $\cdot$ is the ordinary dot product.)
 
 \textbf{Solution:}
+
+In order to prove the statement, we need to show prove from both directions.
+
+($\Rightarrow$) First, assume $\mathbf{u} \cdot \mathbf{v} = 0$. We need to prove that $\|\mathbf{u}\| \leq \|\mathbf{u} + c\mathbf{v}\|$ for all $c \in \mathbb{R}$.
+
+Consider $\|\mathbf{u} + c\mathbf{v}\|^2$:
+\begin{align*}
+\|\mathbf{u} + c\mathbf{v}\|^2 &= (\mathbf{u} + c\mathbf{v}) \cdot (\mathbf{u} + c\mathbf{v}) \\
+&= \|\mathbf{u}\|^2 + c(\mathbf{u} \cdot \mathbf{v}) + c(\mathbf{v} \cdot \mathbf{u}) + c^2\|\mathbf{v}\|^2 \\
+&= \|\mathbf{u}\|^2 + 2c(\mathbf{u} \cdot \mathbf{v}) + c^2\|\mathbf{v}\|^2
+\end{align*}
+
+Since $\mathbf{u} \cdot \mathbf{v} = 0$, this simplifies to:
+\[\|\mathbf{u} + c\mathbf{v}\|^2 = \|\mathbf{u}\|^2 + c^2\|\mathbf{v}\|^2\]
+
+As $c^2\|\mathbf{v}\|^2 \geq 0$ for any $c \in \mathbb{R}$ (since norms are non-negative), we have:
+\[\|\mathbf{u} + c\mathbf{v}\|^2 \geq \|\mathbf{u}\|^2\]
+
+Taking the square root of both sides (which preserves inequality as both sides are non-negative):
+\[\|\mathbf{u} + c\mathbf{v}\| \geq \|\mathbf{u}\|\]
+
+($\Leftarrow$) Conversely, assume $\|\mathbf{u}\| \leq \|\mathbf{u} + c\mathbf{v}\|$ for all $c \in \mathbb{R}$.
+
+This implies:
+\[\|\mathbf{u}\|^2 \leq \|\mathbf{u} + c\mathbf{v}\|^2 \text{ for all } c \in \mathbb{R}\]
+
+Expanding the right side:
+\[\|\mathbf{u}\|^2 \leq \|\mathbf{u}\|^2 + 2c(\mathbf{u} \cdot \mathbf{v}) + c^2\|\mathbf{v}\|^2\]
+
+Subtracting $\|\mathbf{u}\|^2$ from both sides:
+\[0 \leq 2c(\mathbf{u} \cdot \mathbf{v}) + c^2\|\mathbf{v}\|^2\]
+
+This is a quadratic in $c$. Therefore, there are two cases:
+\begin{itemize}
+    \item If $\|\mathbf{v}\|^2 = 0$, then the inequality is trivially true.
+    \item If $\|\mathbf{v}\|^2 > 0$, this is an upward-opening parabola for $c \in \mathbb{R}$. We can find the vertex of the parabola $c^*$:
+    $$
+    c^* = -\frac{2(\mathbf{u} \cdot \mathbf{v})}{2\|\mathbf{v}\|^2} = -\frac{(\mathbf{u} \cdot \mathbf{v})}{\|\mathbf{v}\|^2}
+    $$
+
+    Plugging $c^*$ into the inequality:
+    \begin{align*}
+        0 &\leq 2c^*(\mathbf{u} \cdot \mathbf{v}) + c^{*2}\|\mathbf{v}\|^2 \\
+        &= 2\left(-\frac{(\mathbf{u} \cdot \mathbf{v})}{\|\mathbf{v}\|^2}\right)(\mathbf{u} \cdot \mathbf{v}) + \left(-\frac{(\mathbf{u} \cdot \mathbf{v})}{\|\mathbf{v}\|^2}\right)^2\|\mathbf{v}\|^2 \\
+        &= -\frac{2(\mathbf{u} \cdot \mathbf{v})^2}{\|\mathbf{v}\|^2} + \frac{(\mathbf{u} \cdot \mathbf{v})^2}{\|\mathbf{v}\|^2} \\
+        &= -\frac{(\mathbf{u} \cdot \mathbf{v})^2}{\|\mathbf{v}\|^2}
+    \end{align*}
+
+    Since $(\mathbf{u} \cdot \mathbf{v})^2 \geq 0$ and $\|\mathbf{v}\|^2 > 0$, the only way that the inequality holds is if $(\mathbf{u} \cdot \mathbf{v})^2 = 0$, which means $\mathbf{u} \cdot \mathbf{v} = 0$.
+\end{itemize}
+
+Therefore, $\mathbf{u} \cdot \mathbf{v} = 0$ if and only if $\|\mathbf{u}\| \leq \|\mathbf{u} + c\mathbf{v}\|$ for all $c \in \mathbb{R}$.
 
 \newpage
 
