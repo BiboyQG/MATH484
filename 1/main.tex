@@ -50,7 +50,7 @@
         0 & \text{otherwise}
     \end{cases}$
 
-    There is no global minimizer here. The local minimizers here are $x^* \in (0, \infty) \setminus \{2^k \mid k \in \mathbb{Z}, k \neq 0\}$, but not strictly.
+    There is no global minimizer here. The local minimizers here are $x^* \in (0, \infty) \setminus \{2^k \mid k \in \mathbb{Z}_{+}\}$, but not strictly.
 \end{itemize}
 
 \newpage
@@ -141,5 +141,69 @@ by deleting all rows except rows 1 and 3, and also deleting all columns except c
 \end{bmatrix}$.)
 
 \textbf{Solution:}
+
+\begin{itemize}
+    \item Every diagonal entry of $A$ is positive.
+    
+    Plug basis vector $e_i$ into $x$, we have:
+    \[
+    e_i^T A e_i = a_{ii} > 0
+    \]
+
+    Therefore, every diagonal entry of $A$ is positive.
+
+    \item Every eigenvalue of $A$ is positive.
+
+    Suppose $\lambda$ is an eigenvalue of $A$. Then,
+    \[
+    Ax = \lambda x
+    \]
+
+    Left multiply both sides by $x^T$, we get:
+    \[
+    x^T A x = \lambda x^T x = \lambda \sum_{i=1}^n x_i^2 > 0
+    \]
+
+    Since $x^T A x > 0$ for all nonzero $x$, we have $\lambda > 0$.
+
+    \item Let $S \subseteq \{1,\ldots,n\}$, and suppose that $B$ is an $|S| \times |S|$ matrix obtained from $A$ by deleting all rows and columns whose indices are not in $S$. Then, every eigenvalue of $B$ is positive.
+
+We want to show that any eigenvalue of the submatrix \(B\) is strictly positive.
+
+Suppose \(\lambda\) is an eigenvalue of \(B\) and let \(\mathbf{x} \in \mathbb{R}^{|S|}\)
+be an eigenvector corresponding to \(\lambda\). Thus,
+\[
+B \mathbf{x} \;=\; \lambda \, \mathbf{x}.
+\]
+
+Construct a vector \(\mathbf{y} \in \mathbb{R}^n\) by
+\[
+y_i \;=\;
+\begin{cases}
+x_i, & \text{if } i \in S, \\
+0,   & \text{if } i \notin S.
+\end{cases}
+\]
+Clearly, \(\mathbf{y} \neq \mathbf{0}\) if \(\mathbf{x} \neq \mathbf{0}\).
+
+Because \(B\) is the submatrix of \(A\) corresponding to the index set \(S\),
+we have
+\[
+\mathbf{y}^T A \mathbf{y}
+\;=\;
+\mathbf{x}^T B \mathbf{x}.
+\]
+With the eigenvalue equation \(\mathbf{x}^T B \mathbf{x} = \lambda \, \mathbf{x}^T \mathbf{x}\),
+we obtain
+\[
+\mathbf{y}^T A \mathbf{y}
+\;=\;
+\lambda \, \|\mathbf{x}\|^2 > 0
+\]
+
+Since \(\|\mathbf{x}\|^2 \ge 0\) and \(\mathbf{x} \neq 0\), we get \(\lambda > 0\).
+Therefore, every eigenvalue of \(B\) is strictly positive.
+
+\end{itemize}
 
 \end{document}
