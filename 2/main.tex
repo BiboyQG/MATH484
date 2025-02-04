@@ -66,7 +66,7 @@ The leading principal minors are:
     \end{pmatrix} = 3 > 0
 \end{align*}
 
-Since all the leading principal minors are positive, the Hessian matrix is positive definite. Therefore, $(x^*,y^*)$ is a global minimizer. \\
+Since all the leading principal minors are positive, the Hessian matrix is positive definite. Therefore, $(x^*,y^*)$ is a global minimizer.
 
 \newpage
 
@@ -74,8 +74,30 @@ Since all the leading principal minors are positive, the Hessian matrix is posit
 (5 points) Write the following quadratic form $f: \mathbb{R}^3 \to \mathbb{R}$ in the form $\mathbf{x}^T A\mathbf{x}$, where $A$ is a symmetric matrix.
 $$f(x_1,x_2,x_3) = x_1^2 - 4x_2^2 - 2x_3^2 + 10x_1x_2 + 3x_1x_3 + 4x_2x_3.$$
 
-\textbf{Solution:}
+\textbf{Solution:} \\
 
+We can decide about value of diagonal elements of $A$ first. Looking at the $x_1^2, x_2^2, x_3^2$ terms, we see that the coefficients are $1, -4, -2$ respectively. So the diagonal elements are $1, -4, -2$. \\
+
+Next, we look at the $x_1x_2, x_1x_3, x_2x_3$ terms. The coefficients are $5, 3, 4$ respectively. So the off-diagonal elements are $5/2, 3/2, 2$. \\
+
+Putting these together, we get the following $f$ in form of $\mathbf{x}^T A\mathbf{x}$:
+
+\begin{align*}
+    f(x_1,x_2,x_3) &= x_1^2 - 4x_2^2 - 2x_3^2 + 10x_1x_2 + 3x_1x_3 + 4x_2x_3 \\
+    &= \begin{pmatrix}
+        x_1 & x_2 & x_3
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 & 5 & 1.5 \\
+        5 & -4 & 2 \\
+        1.5 & 2 & -2
+    \end{pmatrix}
+    \begin{pmatrix}
+        x_1 \\
+        x_2 \\
+        x_3
+    \end{pmatrix}
+\end{align*}
 \newpage
 
 \section*{Exercise 3}
