@@ -25,7 +25,48 @@
 
 (If you are not familiar with this process, then after you solve this question, I recommend changing the coefficients and then trying to find and classify the critical points of your new function, for extra practice.)\\
 
-\textbf{Solution:}
+\textbf{Solution:} \\
+
+Since $f$ is a quadratic continuous function, we can find the global minimizer by first finding the critical points and then verifying that they are global minimizers. \\
+
+1) Find the critical points:
+
+\begin{align*}
+    \nabla f(x,y) &= (2x + y - 4, 2y + x - 5) = 0 \\
+    &\Rightarrow\left\{
+    \begin{aligned}
+    2x + y - 4 &= 0 \\
+    2y + x - 5 &= 0
+    \end{aligned}
+    \right.
+\end{align*}
+
+Solving the above system of equations, we get the critical point $(x^*,y^*) = (1,2)$. \\
+
+2) Verify that this is a global minimizer: \\
+
+To verify that this is a global minimizer, we need to check that the Hessian matrix is positive definite at this point.
+
+\begin{align*}
+    Hf(x,y) &= \begin{pmatrix}
+        2 & 1 \\
+        1 & 2
+    \end{pmatrix}
+\end{align*}
+
+Since the Hessian matrix is symmetric, we can use the Sylvester's criterion to check if it is positive definite. If all the leading principal minors of the Hessian matrix are positive, then the Hessian matrix is positive definite. \\
+
+The leading principal minors are:
+
+\begin{align*}
+    \Delta_1 &= 2 > 0 \\
+    \Delta_2 &= \det\begin{pmatrix}
+        2 & 1 \\
+        1 & 2
+    \end{pmatrix} = 3 > 0
+\end{align*}
+
+Since all the leading principal minors are positive, the Hessian matrix is positive definite. Therefore, $(x^*,y^*)$ is a global minimizer. \\
 
 \newpage
 
@@ -49,14 +90,14 @@ $$f(x_1,x_2,x_3) = x_1^2 - 4x_2^2 - 2x_3^2 + 10x_1x_2 + 3x_1x_3 + 4x_2x_3.$$
 \newpage
 
 \section*{Exercise 4}
-(8 points) Let $f: \mathbb{R}^n \to \mathbb{R}$ be a function, and let $\mathbf{x}^* \in \mathbb{R}^n$. Prove that $\mathbf{x}^*$ is a global minimizer of $f$ if and only if for every $\mathbf{u} \in \mathbb{R}^n$, $t = 0$ is a global minimizer of the function $\phi_{\mathbf{x}^*,\mathbf{u}}(t) = f(\mathbf{x}^* + t\mathbf{u})$.
+(8 points) Let $f: \mathbb{R}^n \to \mathbb{R}$ be a function, and let $\mathbf{x}^* \in \mathbb{R}^n$. Prove that $\mathbf{x}^*$ is a global minimizer of $f$ if and only if for every $\mathbf{u} \in \mathbb{R}^n$, $t = 0$ is a global minimizer of the function $\phi_{\mathbf{x}^*,\mathbf{u}}(t) = f(\mathbf{x}^* + t\mathbf{u})$. \\
 
 \textbf{Solution:}
 
 \newpage
 
 \section*{Exercise 5}
-(8 points) Let $A$ be a symmetric $n \times n$ matrix, and suppose that $\mathbf{v}_1,\ldots,\mathbf{v}_t$ are distinct eigenvectors of $A$ with positive eigenvalues. Prove that if $\mathbf{v} \in span\{\mathbf{v}_1,\ldots,\mathbf{v}_t\}$ and $\mathbf{v}$ is nonzero, then $\mathbf{v}^T A\mathbf{v} > 0$.
+(8 points) Let $A$ be a symmetric $n \times n$ matrix, and suppose that $\mathbf{v}_1,\ldots,\mathbf{v}_t$ are distinct eigenvectors of $A$ with positive eigenvalues. Prove that if $\mathbf{v} \in span\{\mathbf{v}_1,\ldots,\mathbf{v}_t\}$ and $\mathbf{v}$ is nonzero, then $\mathbf{v}^T A\mathbf{v} > 0$. \\
 
 \textbf{Solution:}
 
