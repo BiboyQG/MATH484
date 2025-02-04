@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+
+\DeclareMathOperator{\R}{\mathbb R}
+
+\pagestyle{fancy}
+\fancyhead[L]{Banghao Chi}
+\fancyhead[C]{Homework 2}
+\fancyhead[R]{5th Feb}
+
+\fancyfoot[C]{\thepage}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\begin{document}
+
+\section*{Exercise 1}
+(5 points) Consider the function $f(x,y) = x^2 + y^2 + xy - 4x - 5y + 1$. Use $\nabla f(x,y)$ and $Hf(x,y)$ to find and verify the global minimizer of $f$.
+
+(If you are not familiar with this process, then after you solve this question, I recommend changing the coefficients and then trying to find and classify the critical points of your new function, for extra practice.)\\
+
+\textbf{Solution:}
+
+\newpage
+
+\section*{Exercise 2}
+(5 points) Write the following quadratic form $f: \mathbb{R}^3 \to \mathbb{R}$ in the form $\mathbf{x}^T A\mathbf{x}$, where $A$ is a symmetric matrix.
+$$f(x_1,x_2,x_3) = x_1^2 - 4x_2^2 - 2x_3^2 + 10x_1x_2 + 3x_1x_3 + 4x_2x_3.$$
+
+\textbf{Solution:}
+
+\newpage
+
+\section*{Exercise 3}
+(5+9 points)
+\begin{itemize}
+    \item Let $f: \mathbb{R}^n \to \mathbb{R}$ be defined $f(\mathbf{x}) = \mathbf{a}^T\mathbf{x} + b$, for some vector $\mathbf{a} \in \mathbb{R}^n$ and real number $b \in \mathbb{R}$. Compute $\nabla f(\mathbf{x})$.
+    \item Let $f: \mathbb{R}^n \to \mathbb{R}$ be defined $f(\mathbf{x}) = \mathbf{x}^T A\mathbf{x}$, where $A$ is some $n \times n$ symmetric matrix. Compute $Hf(\mathbf{x})$.
+\end{itemize}
+
+\textbf{Solution:}
+
+\newpage
+
+\section*{Exercise 4}
+(8 points) Let $f: \mathbb{R}^n \to \mathbb{R}$ be a function, and let $\mathbf{x}^* \in \mathbb{R}^n$. Prove that $\mathbf{x}^*$ is a global minimizer of $f$ if and only if for every $\mathbf{u} \in \mathbb{R}^n$, $t = 0$ is a global minimizer of the function $\phi_{\mathbf{x}^*,\mathbf{u}}(t) = f(\mathbf{x}^* + t\mathbf{u})$.
+
+\textbf{Solution:}
+
+\newpage
+
+\section*{Exercise 5}
+(8 points) Let $A$ be a symmetric $n \times n$ matrix, and suppose that $\mathbf{v}_1,\ldots,\mathbf{v}_t$ are distinct eigenvectors of $A$ with positive eigenvalues. Prove that if $\mathbf{v} \in span\{\mathbf{v}_1,\ldots,\mathbf{v}_t\}$ and $\mathbf{v}$ is nonzero, then $\mathbf{v}^T A\mathbf{v} > 0$.
+
+\textbf{Solution:}
+
+\newpage
+
+\end{document}
