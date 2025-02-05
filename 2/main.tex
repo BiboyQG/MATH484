@@ -109,6 +109,50 @@ Putting these together, we get the following $f$ in form of $\mathbf{x}^T A\math
 
 \textbf{Solution:}
 
+1) Compute $\nabla f(\mathbf{x})$:\\
+
+Notice that \(f(\mathbf{x})\) is a linear function in \(\mathbf{x}\). Hence,
+
+\[
+\nabla f(\mathbf{x}) 
+= \begin{pmatrix}
+\frac{\partial}{\partial x_1} (\mathbf{a}^T \mathbf{x} + b) \\
+\vdots \\
+\frac{\partial}{\partial x_n} (\mathbf{a}^T \mathbf{x} + b)
+\end{pmatrix}
+= \begin{pmatrix}
+a_1 \\
+\vdots \\
+a_n
+\end{pmatrix}
+= \mathbf{a}.
+\]
+
+Thus,
+\[
+\nabla f(\mathbf{x}) = \mathbf{a}.
+\]
+
+2) Compute $Hf(\mathbf{x})$:\\
+
+$$\mathbf{x}^T A\mathbf{x} = \sum_{i=1}^n\sum_{j=1}^n a_{ij}x_ix_j$$
+
+Now, let's find $\frac{\partial f}{\partial x_k}$:
+\begin{align*}
+\frac{\partial f}{\partial x_k} &= \frac{\partial}{\partial x_k}(\sum_{i=1}^n\sum_{j=1}^n a_{ij}x_ix_j) \\
+&= \sum_{j=1}^n a_{kj}x_j + \sum_{i=1}^n a_{ik}x_i \\
+&= \sum_{j=1}^n (a_{kj} + a_{jk})x_j \\
+&= 2\sum_{j=1}^n a_{kj}x_j \quad \text{(since $A$ is symmetric)}
+\end{align*}
+
+Taking the second derivative:
+\begin{align*}
+\frac{\partial^2 f}{\partial x_\ell \partial x_k} &= \frac{\partial}{\partial x_\ell}(2\sum_{j=1}^n a_{kj}x_j) \\
+&= 2a_{k\ell}
+\end{align*}
+
+Therefore, $Hf(\mathbf{x}) = 2A$
+
 \newpage
 
 \section*{Exercise 4}
