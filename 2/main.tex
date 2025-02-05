@@ -158,7 +158,31 @@ Therefore, $Hf(\mathbf{x}) = 2A$
 \section*{Exercise 4}
 (8 points) Let $f: \mathbb{R}^n \to \mathbb{R}$ be a function, and let $\mathbf{x}^* \in \mathbb{R}^n$. Prove that $\mathbf{x}^*$ is a global minimizer of $f$ if and only if for every $\mathbf{u} \in \mathbb{R}^n$, $t = 0$ is a global minimizer of the function $\phi_{\mathbf{x}^*,\mathbf{u}}(t) = f(\mathbf{x}^* + t\mathbf{u})$. \\
 
-\textbf{Solution:}
+\textbf{Solution:} \\
+
+Since this is a if and only if statement, we need to prove both directions. \\
+
+1) From left $\Rightarrow$ right: \\
+
+Since $\mathbf{x}^*$ is a global minimizer of $f$, for any $\mathbf{u} \in \mathbb{R}^n$, we have:
+\begin{align*}
+    f(\mathbf{x}^*) &\leq f(\mathbf{x}^* + t\mathbf{u}) \\
+    \Rightarrow \phi_{\mathbf{x}^*,\mathbf{u}}(0) = f(\mathbf{x}^*) &\leq f(\mathbf{x}^* + t\mathbf{u}) = \phi_{\mathbf{x}^*,\mathbf{u}}(t) \\
+    \Rightarrow \phi_{\mathbf{x}^*,\mathbf{u}}(0) &\leq \phi_{\mathbf{x}^*,\mathbf{u}}(t) \quad \forall t \in \mathbb{R}
+\end{align*}
+
+Therefore, $t = 0$ is a global minimizer of the function $\phi_{\mathbf{x}^*,\mathbf{u}}(t) = f(\mathbf{x}^* + t\mathbf{u})$. \\
+
+2) From right $\Rightarrow$ left: \\
+
+Since $t = 0$ is a global minimizer of the function $\phi_{\mathbf{x}^*,\mathbf{u}}(t) = f(\mathbf{x}^* + t\mathbf{u})$ for any $\mathbf{u} \in \mathbb{R}^n$, we have:
+\begin{align*}
+    \phi_{\mathbf{x}^*,\mathbf{u}}(0) &\leq \phi_{\mathbf{x}^*,\mathbf{u}}(t) \\
+    \phi_{\mathbf{x}^*,\mathbf{u}}(0) = f(\mathbf{x}^*) &\leq f(\mathbf{x}^* + t\mathbf{u}) = \phi_{\mathbf{x}^*,\mathbf{u}}(t) \\
+    \Rightarrow f(\mathbf{x}^*) &\leq f(\mathbf{x}^* + t\mathbf{u}) \quad \forall t \in \mathbb{R}, \forall \mathbf{u} \in \mathbb{R}^n
+\end{align*}
+
+Therefore, $\mathbf{x}^*$ is a global minimizer of $f$. \\
 
 \newpage
 
