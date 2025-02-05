@@ -189,8 +189,34 @@ Therefore, $\mathbf{x}^*$ is a global minimizer of $f$. \\
 \section*{Exercise 5}
 (8 points) Let $A$ be a symmetric $n \times n$ matrix, and suppose that $\mathbf{v}_1,\ldots,\mathbf{v}_t$ are distinct eigenvectors of $A$ with positive eigenvalues. Prove that if $\mathbf{v} \in span\{\mathbf{v}_1,\ldots,\mathbf{v}_t\}$ and $\mathbf{v}$ is nonzero, then $\mathbf{v}^T A\mathbf{v} > 0$. \\
 
-\textbf{Solution:}
+\textbf{Solution:} \\
 
-\newpage
+Since $\mathbf{v} \in span\{\mathbf{v}_1,\ldots,\mathbf{v}_t\}$, we can write $\mathbf{v}$ as a linear combination of $\mathbf{v}_1,\ldots,\mathbf{v}_t$:
+\begin{align*}
+    \mathbf{v} &= c_1\mathbf{v}_1 + \cdots + c_t\mathbf{v}_t \\
+    &= \sum_{i=1}^t c_i\mathbf{v}_i
+\end{align*}
+Since $\mathbf{v}$ is nonzero, at least one of the coefficients $c_i$ must be nonzero.
+\begin{align*}
+\mathbf{v}^T A\mathbf{v} &= \left(\sum_{i=1}^t c_i\mathbf{v}_i^T\right)A\left(\sum_{j=1}^t c_j\mathbf{v}_j\right) \\
+&= \sum_{i=1}^t \sum_{j=1}^t c_ic_j\mathbf{v}_i^T A\mathbf{v}_j
+\end{align*}
+Since $\mathbf{v}_j$ is an eigenvector of $A$ with eigenvalue $\lambda_j$:
+\[A\mathbf{v}_j = \lambda_j\mathbf{v}_j\]
+Therefore:
+\begin{align*}
+\mathbf{v}^T A\mathbf{v} &= \sum_{i=1}^t \sum_{j=1}^t c_ic_j\mathbf{v}_i^T \lambda_j\mathbf{v}_j \\
+&= \sum_{i=1}^t \sum_{j=1}^t c_ic_j\lambda_j(\mathbf{v}_i^T\mathbf{v}_j)
+\end{align*}
+Due to orthogonality of eigenvectors, all terms where $i \neq j$ vanish, giving:
+    \[\mathbf{v}^T A\mathbf{v} = \sum_{i=1}^t c_i^2\lambda_i\|\mathbf{v}_i\|^2\]
+Since:
+\begin{itemize}
+   \item $\lambda_i > 0$ for all $i$ (given in the question)
+   \item $\|\mathbf{v}_i\|^2 > 0$ (since eigenvectors are nonzero)
+   \item At least one $c_i \neq 0$ and $c_i^2 \geq 0$ for all $i$
+\end{itemize}
+
+Therefore, $\mathbf{v}^T A\mathbf{v}$ is a sum of non-negative terms with at least one positive term, making $\mathbf{v}^T A\mathbf{v} > 0$. Hence, we have $\mathbf{v}^T A\mathbf{v} > 0$
 
 \end{document}
