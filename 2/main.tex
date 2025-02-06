@@ -66,7 +66,7 @@ The leading principal minors are:
     \end{pmatrix} = 3 > 0
 \end{align*}
 
-Since all the leading principal minors are positive, the Hessian matrix is positive definite. Therefore, $(x^*,y^*)$ is a global minimizer.
+Since all the leading principal minors are positive, the Hessian matrix is positive definite. Therefore, $(x^*,y^*) = (1,2)$ is a global minimizer.
 
 \newpage
 
@@ -181,6 +181,12 @@ Since $t = 0$ is a global minimizer of the function $\phi_{\mathbf{x}^*,\mathbf{
     \phi_{\mathbf{x}^*,\mathbf{u}}(0) = f(\mathbf{x}^*) &\leq f(\mathbf{x}^* + t\mathbf{u}) = \phi_{\mathbf{x}^*,\mathbf{u}}(t) \\
     \Rightarrow f(\mathbf{x}^*) &\leq f(\mathbf{x}^* + t\mathbf{u}) \quad \forall t \in \mathbb{R}, \forall \mathbf{u} \in \mathbb{R}^n
 \end{align*}
+Since this holds for any $\mathbf{u} \in \mathbb{R}^n$ and $t \in \mathbb{R}$, we can actually set $f(\mathbf{x}^* + t\mathbf{u}) = f(\mathbf{x}), \quad \forall \mathbf{x} \in \mathbb{R}^n$
+
+Hence,
+$$
+f(\mathbf{x}^*) \leq f(\mathbf{x}), \quad \forall \mathbf{x} \in \mathbb{R}^n
+$$
 
 Therefore, $\mathbf{x}^*$ is a global minimizer of $f$. \\
 
