@@ -173,10 +173,106 @@ Since $\Delta_1 > 0$, $\Delta_2 > 0$, and $\Delta_3 = 0$, the matrix is positive
 
 $$Hf(\mathbf{x}^*) = A = \begin{bmatrix} 2 & 7 & 13 & 5 \\ 7 & -4 & \frac{2}{5} & 16 \\ 13 & \frac{2}{5} & \frac{1}{2} & 11 \\ 5 & 16 & 11 & 2 \end{bmatrix}.$$
 
-Let $$\phi_1(t) = f(\mathbf{x}^* + t\mathbf{u})$$ and $$\phi_2(t) = f(\mathbf{x}^* + t\mathbf{v})$$ be single-variable functions, where $\mathbf{u}$ and $\mathbf{v}$ are taken from part (b). Show that $\phi_1$ has a strict local minimizer at $t = 0$, while $\phi_2$ has a strict local maximizer at $t = 0$.
+Let $$\phi_1(t) = f(\mathbf{x}^* + t\mathbf{u})$$ and $$\phi_2(t) = f(\mathbf{x}^* + t\mathbf{v})$$ be single-variable functions, where $\mathbf{u}$ and $\mathbf{v}$ are taken from part (b). Show that $\phi_1$ has a strict local minimizer at $t = 0$, while $\phi_2$ has a strict local maximizer at $t = 0$. \\
 
 \textbf{Solution: } \\
 
+(a) To find the eigenvalues of matrix B, we solve the characteristic equation:
+\begin{align*}
+\det(B - \lambda I) &= \begin{vmatrix} 2-\lambda & 5 \\ 5 & 2-\lambda \end{vmatrix} = 0 \\
+&= (2-\lambda)^2 - 25 = 0 \\
+&= \lambda^2 - 4\lambda - 21 = 0
+\end{align*}
 
+Solving the quadratic form, we get that the eigenvalues are:
+\[\lambda_1 = 7 \text{ and } \lambda_2 = -3\]
+
+(b) Note that the \((1,1)\), \((1,4)\), \((4,1)\), and \((4,4)\) entries of \(A\) form the \(2\times 2\) submatrix
+\[
+\begin{bmatrix}
+2 & 5 \\[6pt]
+5 & 2
+\end{bmatrix}
+\;=\;
+B.
+\]
+In other words, if we take a vector \(\mathbf{x}\in\mathbb{R}^4\) of the form
+\[
+\mathbf{x} \;=\; (x_1,\,0,\,0,\,x_4)^\top,
+\]
+then
+\(\mathbf{x}^T A \,\mathbf{x}\) depends only on the submatrix \(B\), because the 2nd and 3rd components of \(\mathbf{x}\) are zero. \\
+
+From (a), we know that the eigenvalues of \(B\) are \(\lambda_1 = 7\) and \(\lambda_2 = -3\). Using the eigenvalues, we can find the corresponding unit eigenvectors. \\
+
+For \(\lambda_1 = 7\), since plugging $\lambda_1$ into the eigenvector equation gives us $x_1 = x_4$:
+\[
+\mathbf{u}_B = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+\]
+
+For \(\lambda_2 = -3\), since plugging $\lambda_2$ into the eigenvector equation gives us $x_1 = -x_4$:
+\[
+\mathbf{v}_B = \begin{bmatrix} 1 \\ -1 \end{bmatrix}
+\]
+
+Since here we are looking for unit vectors satisfying the equality of:
+\[
+\mathbf{u}^T A \,\mathbf{u} = 7 \quad \text{and} \quad \mathbf{v}^T A \,\mathbf{v} = -3
+\]
+
+where \(\mathbf{u}_A\) and \(\mathbf{v}_A\) are unit vectors, we can let:
+\[
+\mathbf{u}_A = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ 0 \\ 0 \\ 1 \end{bmatrix} \quad \text{and} \quad \mathbf{v}_A = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ 0 \\ 0 \\ -1 \end{bmatrix}
+\]
+
+Hence, we have:
+\[
+\mathbf{u}_A^T A \,\mathbf{u}_A = 7 \bigl\|\mathbf{u}_A\bigr\|^2 = 7 \quad \text{and} \quad \mathbf{v}_A^T A \,\mathbf{v}_A = -3 \bigl\|\mathbf{v}_A\bigr\|^2 = -3
+\]
+
+(c) \\
+
+\begin{itemize}
+\item Since \(\nabla f(\mathbf{x}^*) = \mathbf{0}\), the first derivative of \(\phi_1\) at \(0\) is
+   \[
+   \phi_1'(0)
+   \;=\;
+   \nabla f(\mathbf{x}^*) \cdot \mathbf{u} 
+   \;=\; 0.
+   \]
+   The second derivative at \(0\) is
+   \[
+   \phi_1''(0)
+   \;=\;
+   \mathbf{u}^\top \,Hf(\mathbf{x}^*)\,\mathbf{u}
+   \;=\;
+   \mathbf{u}^\top A\,\mathbf{u}
+   \;=\;
+   7
+   \;>\; 0.
+   \]
+   A positive second derivative at a critical point \(t = 0\) means \(\phi_1\) has a strict local minimum there.
+
+\item Likewise,
+   \[
+   \phi_2'(0)
+   \;=\;
+   \nabla f(\mathbf{x}^*) \cdot \mathbf{v}
+   \;=\; 0,
+   \]
+   and
+   \[
+   \phi_2''(0)
+   \;=\;
+   \mathbf{v}^\top A\,\mathbf{v}
+   \;=\;
+   -3 
+   \;<\; 0.
+   \]
+   A negative second derivative at a critical point \(t = 0\) means \(\phi_2\) has a strict local maximum there.
+
+\end{itemize}
+
+Thus \(\phi_1\) has a strict local minimizer at \(t=0\), while \(\phi_2\) has a strict local maximizer at \(t=0\). 
 
 \end{document}
