@@ -128,7 +128,36 @@ Since we have shown that any convex combination of two points in S is also in S,
 
 \textbf{Solution: } \\
 
+Since all the above matrices are symmetric, we can use Sylvester's criterion to determine the definiteness of a matrix. \\
 
+\begin{itemize}
+\item For $\begin{bmatrix} 4 & 1 \\ 1 & -2 \end{bmatrix}$:
+\begin{itemize}
+\item $\Delta_1 = 4 > 0$
+\item $\Delta_2 = \begin{vmatrix} 4 & 1 \\ 1 & -2 \end{vmatrix} = 4(-2) - 1(1) = -8 - 1 = -9 < 0$
+\end{itemize}
+Since $\Delta_1 > 0$ and $\Delta_2 < 0$, the matrix is indefinite.
+\end{itemize}
+
+\begin{itemize}
+\item For $\begin{bmatrix} -12 & 1 & 3 \\ 1 & -1 & 0 \\ 3 & 0 & -2 \end{bmatrix}$:
+\begin{itemize}
+\item $\Delta_1 = -12 < 0$
+\item $\Delta_2 = \begin{vmatrix} -12 & 1 \\ 1 & -1 \end{vmatrix} = -12(-1) - 1(1) = 12 - 1 = 11 > 0$
+\item $\Delta_3 = \begin{vmatrix} -12 & 1 & 3 \\ 1 & -1 & 0 \\ 3 & 0 & -2 \end{vmatrix} = 3(0 + 3) - 2(11) = 9 - 22 = -13 < 0$
+\end{itemize}
+Since $\Delta_1 < 0$, $\Delta_2 > 0$, $\Delta_3 < 0$, the matrix is negative definite.
+\end{itemize}
+
+\begin{itemize}
+\item For $\begin{bmatrix} 5 & -1 & -2 \\ -1 & 1 & 0 \\ -2 & 0 & 1 \end{bmatrix}$:
+\begin{itemize}
+\item $\Delta_1 = 5 > 0$
+\item $\Delta_2 = \begin{vmatrix} 5 & -1 \\ -1 & 1 \end{vmatrix} = 5(1) - (-1)(-1) = 5 - 1 = 4 > 0$
+\item $\Delta_3 = \begin{vmatrix} 5 & -1 & -2 \\ -1 & 1 & 0 \\ -2 & 0 & 1 \end{vmatrix} = -2(0 + 2) + 1(5 - 1) = -4 + 4 = 0$
+\end{itemize}
+Since $\Delta_1 > 0$, $\Delta_2 > 0$, and $\Delta_3 = 0$, the matrix is positive semidefinite.
+\end{itemize}
 
 \newpage
 
