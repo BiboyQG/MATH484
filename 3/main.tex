@@ -156,8 +156,30 @@ Since $\Delta_1 < 0$, $\Delta_2 > 0$, $\Delta_3 < 0$, the matrix is negative def
 \item $\Delta_2 = \begin{vmatrix} 5 & -1 \\ -1 & 1 \end{vmatrix} = 5(1) - (-1)(-1) = 5 - 1 = 4 > 0$
 \item $\Delta_3 = \begin{vmatrix} 5 & -1 & -2 \\ -1 & 1 & 0 \\ -2 & 0 & 1 \end{vmatrix} = -2(0 + 2) + 1(5 - 1) = -4 + 4 = 0$
 \end{itemize}
-Since $\Delta_1 > 0$, $\Delta_2 > 0$, and $\Delta_3 = 0$, the matrix is positive semidefinite.
+Since $\Delta_3 = 0$, the criterion that we learned in class is no longer applicable. \\
+
+Here, we compute all the principal minors to determine the definiteness of the matrix:
+\begin{itemize}
+\item First-order principal minor:
+\begin{itemize}
+   \item $\bigl\|\begin{bmatrix} 5 \end{bmatrix}\bigr\| = 5 > 0$
+   \item $\bigl\|\begin{bmatrix} 1 \end{bmatrix}\bigr\| = 1 > 0$
+   \item $\bigl\|\begin{bmatrix} 1 \end{bmatrix}\bigr\| = 1 > 0$
 \end{itemize}
+\item Second-order principal minor:
+\begin{itemize}
+   \item $\bigl\|\begin{bmatrix} 5 & -1 \\ -1 & 1 \end{bmatrix}\bigr\| = 5(1) - (-1)(-1) = 5 - 1 = 4 > 0$
+   \item $\bigl\|\begin{bmatrix} 5 & -2 \\ -2 & 1 \end{bmatrix}\bigr\| = 5(1) - (-2)(-2) = 5 - 4 = 1 > 0$
+   \item $\bigl\|\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}\bigr\| = 1(1) - 0(0) = 1 > 0$
+\end{itemize}
+\item Third-order principal minor:
+\begin{itemize}
+   \item $\bigl\|\begin{bmatrix} 5 & -1 & -2 \\ -1 & 1 & 0 \\ -2 & 0 & 1 \end{bmatrix}\bigr\| = 0$
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+Since all the principal minors are non-negative, the matrix is positive semidefinite.
 
 \newpage
 
@@ -207,12 +229,12 @@ From (a), we know that the eigenvalues of \(B\) are \(\lambda_1 = 7\) and \(\lam
 
 For \(\lambda_1 = 7\), since plugging $\lambda_1$ into the eigenvector equation gives us $x_1 = x_4$:
 \[
-\mathbf{u}_B = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+\mathbf{u}_B = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ 1 \end{bmatrix}
 \]
 
 For \(\lambda_2 = -3\), since plugging $\lambda_2$ into the eigenvector equation gives us $x_1 = -x_4$:
 \[
-\mathbf{v}_B = \begin{bmatrix} 1 \\ -1 \end{bmatrix}
+\mathbf{v}_B = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ -1 \end{bmatrix}
 \]
 
 Since here we are looking for unit vectors satisfying the equality of:
