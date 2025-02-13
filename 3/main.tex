@@ -85,7 +85,34 @@ is convex. \\
 
 \textbf{Solution: } \\
 
+To prove that S is convex, we need to show that for any two points $\mathbf{x}_1, \mathbf{x}_2 \in S$ and any $t \in [0,1]$, the point $t\mathbf{x}_1 + (1-t)\mathbf{x}_2$ is also in S. \\
 
+Let $\mathbf{x}_1, \mathbf{x}_2 \in S$ and $t \in [0,1]$. By definition of S, we have:
+\begin{align*}
+\|\mathbf{x}_1 - \mathbf{x}_0\| &< r \\
+\|\mathbf{x}_2 - \mathbf{x}_0\| &< r
+\end{align*}
+
+Consider the point $\mathbf{x}_t = t\mathbf{x}_1 + (1-t)\mathbf{x}_2$. We need to show that $\|\mathbf{x}_t - \mathbf{x}_0\| < r$.
+
+\begin{align*}
+\|\mathbf{x}_t - \mathbf{x}_0\| &= \|t\mathbf{x}_1 + (1-t)\mathbf{x}_2 - \mathbf{x}_0\| \\
+&= \|t\mathbf{x}_1 + (1-t)\mathbf{x}_2 - t\mathbf{x}_0 - (1-t)\mathbf{x}_0\| \\
+&= \|t(\mathbf{x}_1 - \mathbf{x}_0) + (1-t)(\mathbf{x}_2 - \mathbf{x}_0)\| \\
+&\leq t\|\mathbf{x}_1 - \mathbf{x}_0\| + (1-t)\|\mathbf{x}_2 - \mathbf{x}_0\| \quad \text{(by triangle inequality)}
+\end{align*}
+
+Since $\|\mathbf{x}_1 - \mathbf{x}_0\| < r$ and $\|\mathbf{x}_2 - \mathbf{x}_0\| < r$, we have:
+
+\begin{align*}
+\|\mathbf{x}_t - \mathbf{x}_0\| &\leq t\|\mathbf{x}_1 - \mathbf{x}_0\| + (1-t)\|\mathbf{x}_2 - \mathbf{x}_0\| \\
+&< tr + (1-t)r \\
+&= r
+\end{align*}
+
+Therefore, $\|\mathbf{x}_t - \mathbf{x}_0\| < r$, which means $\mathbf{x}_t \in S$. \\
+
+Since we have shown that any convex combination of two points in S is also in S, we can conclude that S is convex.
 
 \newpage
 
