@@ -62,7 +62,6 @@ $= s\mathbf{y} + (1-s)\mathbf{x}_{k+1}$ \\
 By property ($\star$) with $t = s$:
 $$f(s\mathbf{y} + (1-s)\mathbf{x}_{k+1}) \leq sf(\mathbf{y}) + (1-s)f(\mathbf{x}_{k+1})$$
 
-By the inductive hypothesis applied to $\mathbf{x}_1,\ldots,\mathbf{x}_k$ with coefficients $\frac{\lambda_1}{s},\ldots,\frac{\lambda_k}{s}$ (which sum to 1):
 By the inductive hypothesis applied to $\mathbf{x}_1,\ldots,\mathbf{x}_k$ with coefficients $\frac{\lambda_1}{s},\ldots,\frac{\lambda_k}{s}$ (which sum to 1 as we noted in the previous step):
 $$f(\mathbf{y}) = f(\frac{1}{s}(\lambda_1\mathbf{x}_1 + \cdots + \lambda_k\mathbf{x}_k)) \leq \frac{\lambda_1}{s}f(\mathbf{x}_1) + \cdots + \frac{\lambda_k}{s}f(\mathbf{x}_k)$$
 
@@ -82,7 +81,7 @@ By the principle of mathematical induction, the statement holds for all $k \geq 
 (10 points) Let $\mathbf{x} \in \mathbb{R}^n$ and $r > 0$. Let $\|\cdot\|: \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}$ be a norm function given by some arbitrary inner product. Fix a vector $\mathbf{x}_0 \in \mathbb{R}^n$ and a real number $r > 0$. Prove that the set
 
 $$S = \{\mathbf{x} \in \mathbb{R}^n : \|\mathbf{x} - \mathbf{x}_0\| < r\}$$
-is convex.
+is convex. \\
 
 \textbf{Solution: } \\
 
