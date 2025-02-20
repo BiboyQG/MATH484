@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+
+\DeclareMathOperator{\R}{\mathbb R}
+
+\pagestyle{fancy}
+\fancyhead[L]{Banghao Chi}
+\fancyhead[C]{Homework 3}
+\fancyhead[R]{11th Feb}
+
+\fancyfoot[C]{\thepage}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\begin{document}
+
+\section*{Exercise 1}
+(10 points) Consider the dot product $\cdot : \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}$, and its associated (Euclidean) norm $\|\cdot\|$. Let $B$ be the closed ball of radius 1 centered at the origin; that is,
+\[
+    B = \{\mathbf{x} \in \mathbb{R}^n : \|\mathbf{x}\| \leq 1\}.
+\]
+Prove the following statement, which shows that $B$ is an intersection of affine half-spaces:
+\[
+    B = \bigcap_{\substack{\mathbf{a}\in\mathbb{R}^n \\ \|\mathbf{a}\|=1}} \{\mathbf{x} \in \mathbb{R}^n : \mathbf{a}^T\mathbf{x} \leq 1\}.
+\]
+
+\textbf{Solution:}
+
+\newpage
+
+\section*{Exercise 2}
+(20 points) Use Jensen's inequality to find a solution for each of the following problems. (In each problem your answer should be a pair $(x,y)$ or a triple $(x,y,z)$.)
+\begin{itemize}
+\item Minimize $e^x + e^y + 2e^z$ subject to $\frac{1}{4}x + \frac{1}{4}y + \frac{1}{2}z = 2$.
+\item Minimize $7 + \sqrt[3]{e^x + e^{2y}}$ subject to $2x + 4y = 9$.
+\item Maximize $xyz$ subject to $x + y + z = 4$ and $x,y,z > 0$.
+\item Minimize $16^x + 2^{y+2}$ subject to $x + y = 7$.
+\end{itemize}
+
+\textbf{Solution:}
+
+\newpage
+
+\section*{Exercise 3}
+(10 points) Let $X$ be a random variable that takes values in a finite set $S$, where $S$ is a subset of the interval $[\frac{\pi}{4}, \frac{2\pi}{5}]$. Recall that the expected value of $X$ is defined as
+\[
+    E[X] = \sum_{s\in S} s\Pr(X = s).
+\]
+Suppose that $E[X] = \frac{\pi}{3}$. Prove that the expected value of the cosine of $X$ is at most $\frac{1}{2}$.
+
+Hint: A function $f$ is concave if $-f$ is convex. One can show that a concave function satisfies Jensen's inequality, but with the inequality reversed.
+
+\textbf{Solution:}
+
+\newpage
+
+\end{document}
