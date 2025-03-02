@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+
+\DeclareMathOperator{\R}{\mathbb R}
+
+\pagestyle{fancy}
+\fancyhead[L]{Banghao Chi}
+\fancyhead[C]{Homework 5}
+\fancyhead[R]{2nd Mar}
+
+\fancyfoot[C]{\thepage}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\begin{document}
+
+\section*{Exercise 1}
+(18 points) Prove the following form of Jensen's inequality: \\
+
+\textbf{Theorem 0.1.} Let $f : \mathbb{R}^n \to \mathbb{R}$ be strictly convex, and let $k \geq 2$ be an integer. Suppose that $\lambda_1, \ldots, \lambda_k > 0$ satisfy $\lambda_1 + \cdots + \lambda_k = 1$, and suppose that $\mathbf{x}_1, \ldots, \mathbf{x}_k \in R^n$ are $k$ vectors in $\mathbb{R}^n$ that are not all the same. Then,
+\[
+f(\lambda_1 \mathbf{x}_1 + \cdots + \lambda_k \mathbf{x}_k) < \lambda_1 f(\mathbf{x}_1) + \cdots + \lambda_k f(\mathbf{x}_k).
+\]
+
+You may use the original Jensen's inequality in your proof.
+
+Next, using Theorem 0.1, prove the following form of the AM-GM inequality: \\
+
+\textbf{Theorem 0.2.} Let $k \geq 2$ be an integer. Let $x_1, \ldots, x_k$ be $k$ real numbers that are not all the same. Let $\lambda_1, \ldots, \lambda_k > 0$ satisfy $\lambda_1 + \cdots + \lambda_k = 1$. Then,
+\[
+\lambda_1 x_1 + \cdots + \lambda_k x_k > x_1^{\lambda_1} \cdots x_k^{\lambda_k}.
+\]
+
+\textbf{Solution:} \\
+
+
+
+\newpage
+
+\section*{Exercise 2}
+(12 points) Consider the unconstrained geometric program
+\begin{align}
+\text{minimize} \quad & \frac{t_1}{t_2} + t_2^8 + \frac{4}{t_1 t_2} \\
+\text{subject to} \quad & t_1, t_2 > 0.
+\end{align}
+
+\begin{itemize}
+    \item[(a)] Write down the dual geometric program.
+    \item[(b)] Find the solution to the dual geometric program.
+    \item[(c)] Find the solution to the primal geometric program.
+\end{itemize}
+
+\textbf{Solution:} \\
+
+
+
+\newpage
+
+\section*{Exercise 3}
+(10 points) Consider the geometric program
+\begin{align*}
+\text{minimize} \quad & 4t_1^4 t_2^6 + \frac{1}{t_1 t_2^{5/3}} \\
+\text{subject to} \quad & t_1, t_2 > 0.
+\end{align*}
+
+\begin{itemize}
+    \item[(a)] Find the DGP, and show that there is no feasible vector $(\lambda_1, \lambda_2)$.
+    \item[(b)] Show that the objective function has no global minimizer on the domain $\{(t_1, t_2) \in \mathbb{R}^2 : t_1, t_2 > 0\}$.
+\end{itemize}
+
+\textbf{Solution:} \\
+
+
+
+\end{document}
