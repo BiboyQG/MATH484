@@ -32,14 +32,67 @@ You may use the original Jensen's inequality in your proof.
 
 Next, using Theorem 0.1, prove the following form of the AM-GM inequality: \\
 
-\textbf{Theorem 0.2.} Let $k \geq 2$ be an integer. Let $x_1, \ldots, x_k$ be $k$ real numbers that are not all the same. Let $\lambda_1, \ldots, \lambda_k > 0$ satisfy $\lambda_1 + \cdots + \lambda_k = 1$. Then,
+\textbf{Theorem 0.2.} Let $k \geq 2$ be an integer. Let $x_1, \ldots, x_k$ be $k$ positive numbers that are not all the same. Let $\lambda_1, \ldots, \lambda_k > 0$ satisfy $\lambda_1 + \cdots + \lambda_k = 1$. Then,
 \[
 \lambda_1 x_1 + \cdots + \lambda_k x_k > x_1^{\lambda_1} \cdots x_k^{\lambda_k}.
 \]
 
 \textbf{Solution:} \\
 
+We use induction on the number of terms $k$. \\
 
+Base case: When $k = 2$, the formula reduces to the definition of strictly convex functions. \\
+
+Inductive step: For any $k > 2$, suppose that the formula is true when the number of terms is $k - 1$.
+\begin{align*}
+f\left(\sum_{i=1}^{k} \lambda_i x_i\right) &= f\left(\lambda_1 x_1 + (1 - \lambda_1) \sum_{i=2}^{k} \frac{\lambda_i}{1 - \lambda_1}x_i\right)\\
+&\leq \lambda_1 f(x_1) + (1 - \lambda_1)f\left(\sum_{i=2}^{k} \frac{\lambda_i}{1 - \lambda_1} x_i\right)
+\end{align*}
+
+The inequality above comes from applying the definition of convex functions. \\
+
+Now we apply the induction hypothesis to the second term. Since we have $k-1$ terms in the sum $\sum_{i=2}^{k} \frac{\lambda_i}{1 - \lambda_1} x_i$ with weights $\frac{\lambda_i}{1 - \lambda_1}$ that sum to 1, and not all $x_i$ are the same:
+
+\begin{align*}
+f\left(\sum_{i=2}^{k} \frac{\lambda_i}{1 - \lambda_1} x_i\right) &< \sum_{i=2}^{k} \frac{\lambda_i}{1 - \lambda_1} f(x_i)
+\end{align*}
+
+Therefore:
+\begin{align*}
+f\left(\sum_{i=1}^{k} \lambda_i x_i\right) &< \lambda_1 f(x_1) + (1 - \lambda_1)\sum_{i=2}^{k} \frac{\lambda_i}{1 - \lambda_1} f(x_i)\\
+&= \lambda_1 f(x_1) + \sum_{i=2}^{k} \lambda_i f(x_i)\\
+&= \sum_{i=1}^{k} \lambda_i f(x_i)
+\end{align*}
+
+By induction, the formula is true for all $k \geq 2$. \\
+
+Now, to prove Theorem 0.2 (AM-GM inequality) using Theorem 0.1. \\
+
+Let $f(x) = \exp(x)$. We will prove that $f$ is strictly convex and then apply Theorem 0.1. \\
+
+For any $x \in \mathbb{R}$, $f''(x) = \exp(x) > 0$ and is continuous. Therefore, $f$ is strictly convex. \\
+
+Now, consider the positive real numbers $x_1, x_2, \ldots, x_k$ that are not all the same, and weights $\lambda_1, \lambda_2, \ldots, \lambda_k > 0$ with $\sum_{i=1}^{k} \lambda_i = 1$. \\
+
+We apply Theorem 0.1 to the function $f(x) = \exp(x)$ with inputs $\ln x_1, \ln x_2, \ldots, \ln x_k$:
+
+\begin{align*}
+\exp\left(\sum_{i=1}^{k} \lambda_i \ln x_i\right) &< \sum_{i=1}^{k} \lambda_i \exp(\ln x_i)\\
+\exp\left(\sum_{i=1}^{k} \lambda_i \ln x_i\right) &< \sum_{i=1}^{k} \lambda_i x_i
+\end{align*}
+
+The left side can be rewritten:
+\begin{align*}
+\exp\left(\sum_{i=1}^{k} \lambda_i \ln x_i\right) &= \exp\left(\ln\prod_{i=1}^{k} x_i^{\lambda_i}\right)\\
+&= \prod_{i=1}^{k} x_i^{\lambda_i}
+\end{align*}
+
+Therefore:
+\begin{align*}
+\prod_{i=1}^{k} x_i^{\lambda_i} &< \sum_{i=1}^{k} \lambda_i x_i
+\end{align*}
+
+Which is exactly the weighted AM-GM inequality stated in Theorem 0.2.
 
 \newpage
 
@@ -58,7 +111,84 @@ Next, using Theorem 0.1, prove the following form of the AM-GM inequality: \\
 
 \textbf{Solution:} \\
 
+(a) The dual geometric program is:
+\begin{align*}
+\max \quad & g(\lambda) = \left(\frac{1}{\lambda_1}\right)^{\lambda_1} \left(\frac{1}{\lambda_2}\right)^{\lambda_2} \left(\frac{4}{\lambda_3}\right)^{\lambda_3} \\
+\text{subject to} \quad & \lambda_1 - \lambda_3 = 0 \\
+& -\lambda_1 + 8\lambda_2 - \lambda_3 = 0 \\
+& \lambda_1 + \lambda_2 + \lambda_3 = 1 \\
+& \lambda_1, \lambda_2, \lambda_3 > 0
+\end{align*}
 
+(b) From the first constraint: $\lambda_1 = \lambda_3$
+
+Substituting into the second constraint:
+\begin{align*}
+-\lambda_3 + 8\lambda_2 - \lambda_3 &= 0\\
+8\lambda_2 - 2\lambda_3 &= 0\\
+8\lambda_2 &= 2\lambda_3\\
+\lambda_2 &= \frac{\lambda_3}{4}
+\end{align*}
+
+Using the third constraint and substituting:
+\begin{align*}
+\lambda_3 + \frac{\lambda_3}{4} + \lambda_3 &= 1\\
+\frac{4\lambda_3}{4} + \frac{\lambda_3}{4} + \frac{4\lambda_3}{4} &= 1\\
+\frac{9\lambda_3}{4} &= 1\\
+\lambda_3 &= \frac{4}{9}
+\end{align*}
+
+Therefore:
+\begin{align*}
+\lambda_1 &= \lambda_3 = \frac{4}{9}\\
+\lambda_2 &= \frac{\lambda_3}{4} = \frac{1}{9}
+\end{align*}
+
+The solution to the dual geometric program is:
+\begin{align*}
+\lambda_1^* &= \frac{4}{9}\\
+\lambda_2^* &= \frac{1}{9}\\
+\lambda_3^* &= \frac{4}{9}
+\end{align*}
+
+(c) By theorem:
+\begin{align*}
+\frac{t_1^*}{t_2^*} &= \lambda_1^* \cdot g(t^*) = \frac{4}{9} \cdot g(t^*)\\
+(t_2^*)^8 &= \lambda_2^* \cdot g(t^*) = \frac{1}{9} \cdot g(t^*)\\
+\frac{4}{t_1^* t_2^*} &= \lambda_3^* \cdot g(t^*) = \frac{4}{9} \cdot g(t^*)
+\end{align*}
+
+From the first and third equations:
+\begin{align*}
+\frac{t_1^*}{t_2^*} &= \frac{4}{t_1^* t_2^*}\\
+(t_1^*)^2 &= 4\\
+t_1^* &= 2
+\end{align*}
+
+Using the second equation and substituting into the other equations:
+\begin{align*}
+(t_2^*)^8 &= \frac{1}{9} \cdot g(t^*)\\
+\end{align*}
+
+From the first equation:
+\begin{align*}
+\frac{2}{t_2^*} &= \frac{4}{9} \cdot g(t^*)\\
+g(t^*) &= \frac{9 \cdot \frac{2}{t_2^*}}{4} = \frac{9}{2 \cdot t_2^*}
+\end{align*}
+
+Substituting this into the equation for $(t_2^*)^8$:
+\begin{align*}
+(t_2^*)^8 &= \frac{1}{9} \cdot \frac{9}{2 \cdot t_2^*}\\
+(t_2^*)^8 &= \frac{1}{2 \cdot t_2^*}\\
+(t_2^*)^9 &= \frac{1}{2}\\
+t_2^* &= \left(\frac{1}{2}\right)^{1/9} = 2^{-1/9}
+\end{align*}
+
+Therefore, the solution to the primal geometric program is:
+\begin{align*}
+t_1^* &= 2\\
+t_2^* &= 2^{-1/9}
+\end{align*}
 
 \newpage
 
@@ -76,6 +206,50 @@ Next, using Theorem 0.1, prove the following form of the AM-GM inequality: \\
 
 \textbf{Solution:} \\
 
+(a) The dual geometric program is:
+\begin{align*}
+\text{maximize} \quad & g(\lambda) = \left(\frac{4}{\lambda_1}\right)^{\lambda_1} \left(\frac{1}{\lambda_2}\right)^{\lambda_2} \\
+\text{subject to} \quad & 4 \lambda_1 - \lambda_2 = 0 \\
+& 6 \lambda_1 - (5/3) \lambda_2 = 0 \\
+& \lambda_1, \lambda_2 > 0
+\end{align*}
 
+From the first constraint:
+\begin{align*}
+4\lambda_1 - \lambda_2 &= 0 \\
+\lambda_2 &= 4\lambda_1
+\end{align*}
+
+Substituting into the second constraint:
+\begin{align*}
+6\lambda_1 + (-5/3)(4\lambda_1) &= 0 \\
+6\lambda_1 - (20/3)\lambda_1 &= 0 \\
+(18/3 - 20/3)\lambda_1 &= 0 \\
+-2/3 \cdot \lambda_1 &= 0
+\end{align*}
+
+Since $\lambda_1$ must be positive, the only solution is $\lambda_1 = 0$, which violates the constraint $\lambda_1 > 0$. \\
+
+Therefore, there is no feasible vector $(\lambda_1, \lambda_2)$ for the DGP. \\
+
+(b) The partial derivatives are:
+\begin{align*}
+\frac{\partial f}{\partial t_1} &= 16t_1^3 t_2^6 - \frac{1}{t_1^2 t_2^{5/3}} \\
+\frac{\partial f}{\partial t_2} &= 24t_1^4 t_2^5 - \frac{5}{3} \cdot \frac{1}{t_1 t_2^{8/3}}
+\end{align*}
+
+Setting both equal to zero(setting gradient to 0 to find critical points):
+\begin{align*}
+16t_1^3 t_2^6 &= \frac{1}{t_1^2 t_2^{5/3}} \\
+24t_1^4 t_2^5 &= \frac{5}{3} \cdot \frac{1}{t_1 t_2^{8/3}}
+\end{align*}
+
+Simplifying:
+\begin{align*}
+16t_1^5 t_2^{23/3} &= 1 \\
+24t_1^5 t_2^{23/3} &= \frac{5}{3}
+\end{align*}
+
+These equations are inconsistent since the left sides are proportional (ratio 24:16 = 3:2) but the right sides are not in the same proportion (1 : 5/3 $\neq$ 3:2). Therefore, no critical points exist, and hence, the objective function has no global minimizer.
 
 \end{document}
