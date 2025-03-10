@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+
+\DeclareMathOperator{\R}{\mathbb R}
+
+\pagestyle{fancy}
+\fancyhead[L]{Banghao Chi}
+\fancyhead[C]{Homework 5}
+\fancyhead[R]{2nd Mar}
+
+\fancyfoot[C]{\thepage}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\begin{document}
+
+\section*{Exercise 1}
+(8 points) Show that for all $x, y > 0$,
+\[
+\frac{x}{4} + \frac{3y}{4} \leq \sqrt{\ln \left(\frac{e^{x^2}}{4} + \frac{3}{4}e^{y^2}\right)}.
+\]
+\textbf{Solution:} \\
+
+
+\newpage
+
+\section*{Exercise 2}
+(12 points) Let $m_1, m_2 \in \mathbb{R}$, and let $f : \mathbb{R} \to \mathbb{R}$ be defined
+\[
+f(x) = 
+\begin{cases}
+m_1 x & x \geq 0 \\
+m_2 x & x < 0
+\end{cases}.
+\]
+Prove that $f$ is convex if and only if $m_1 \geq m_2$. \\
+
+This question appeared on a previous exam. It is an example of a question that can be solved quickly or slowly, depending on how familiar you are with the tools at your disposal. Try to see if you can come up with a short, clean solution. \\
+
+\textbf{Solution:} \\
+
+
+
+\newpage
+
+\section*{Exercise 3}
+(12 points) Write a matrix equation whose solution set represents all polynomials of degree at most 4 that pass through the points
+\[
+\{(0,5), (1,1), (2,-1), (3,5)\}.
+\]
+Then, write a general form of a solution to this matrix equation that involves a single parameter $t$. \\
+
+\textbf{Solution:} \\
+
+
+
+\newpage
+
+\section*{Exercise 4}
+(8 points) Polynomial interpolation can be used to share a secret with a group without letting any individual know the secret. The method is as follows. First, a polynomial
+\[
+P(x) = a_k x^k + a_{k-1}x^{k-1} + \cdots + a_1 x + C
+\]
+is generated, where the coefficients $a_1, \ldots, a_k$ are random, and the constant value $C$ stores the secret information. Then, each individual in the group is given a point $(x, y)$ on the graph of $P$, for which $P(x) = y$. This way, if $k + 1$ individuals choose to cooperate, then the polynomial $P$ can be determined, and the secret $C$ can be learned. However, if fewer than $k + 1$ individuals cooperate, then no information about $C$ can be discovered. \\
+
+Suppose that you are part of an important group that has received the password to UIUC's entire administrative computer network in the form of a quadratic polynomial $P(x)$. You have been told that $P(229) = 119114$. By using various ethically dubious methods of persuasion, you also manage to learn from two other group members that $P(2270) = -289086$ and $P(227) = 936714$. \\
+
+Determine the constant term of $P(x)$, and use the code $a = 01, b = 02, c = 03, \ldots$ to decipher the network password. If the constant term has an odd number of digits, then add an initial zero to make the number of digits even. (For example, the word "apple" would be represented by the constant 116161205.) \\
+
+Hint: It probably takes less time to guess the password than to solve this question. \\
+
+\textbf{Solution:} \\
+
+
+
+\newpage
+
+\section*{Exercise 5}
+(10 points, extra credit) Define
+\[
+f(x) = -2x^4 + \frac{1}{2}x^2 + \frac{1}{2}x + 4,
+\]
+and define
+\[
+g_1(x) = x^4 + 2x^3 - x^2 - 2x
+\]
+\[
+g_2(x) = x^4 - 2x^3 - x^2 + 2x.
+\]
+Prove that if $P(x)$ is a polynomial of degree at most 4 that passes through $(1,3), (-1,2), (0,4)$, then there exist constants $c_1, c_2 \in \mathbb{R}$ such that
+\[
+P(x) = f(x) + c_1 g_1(x) + c_2 g_2(x).
+\]
+
+You can use any theorems from linear algebra that you want. \\
+
+\textbf{Solution:} \\
+
+
+
+\end{document}
