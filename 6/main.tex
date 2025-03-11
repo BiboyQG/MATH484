@@ -25,8 +25,24 @@
 \[
 \frac{x}{4} + \frac{3y}{4} \leq \sqrt{\ln \left(\frac{e^{x^2}}{4} + \frac{3}{4}e^{y^2}\right)}.
 \]
-\textbf{Solution:} \\
+\textbf{Solution:}
+\begin{align*}
+    \Leftrightarrow \left(\frac{x}{4} + \frac{3y}{4}\right)^2 &\leq \ln \left(\frac{e^{x^2}}{4} + \frac{3}{4}e^{y^2}\right) \\
+    \Leftrightarrow e^{\left(\frac{x}{4} + \frac{3y}{4}\right)^2} &\leq \frac{e^{x^2}}{4} + \frac{3}{4}e^{y^2}
+\end{align*}
 
+Let $f(t) = e^{t^2}$. This function is convex since its second derivative:
+\begin{align*}
+f''(t) = 2e^{t^2} + 4t^2e^{t^2} > 0 \quad \forall t \in \mathbb{R}
+\end{align*}
+
+Applying Jensen's inequality with the convex function $f(t) = e^{t^2}$ and weights $\frac{1}{4}$ and $\frac{3}{4}$:
+\begin{align*}
+f\left(\frac{x}{4} + \frac{3y}{4}\right) &\leq \frac{1}{4}f(x) + \frac{3}{4}f(y)\\
+e^{\left(\frac{x}{4} + \frac{3y}{4}\right)^2} &\leq \frac{1}{4}e^{x^2} + \frac{3}{4}e^{y^2}
+\end{align*}
+
+Therefore, the inequality is proven for all $x, y > 0$.
 
 \newpage
 
