@@ -220,8 +220,77 @@ You can use any theorems from linear algebra that you want. \\
 
 \textbf{Solution:} \\
 
+For $f(x) = -2x^4 + \frac{1}{2}x^2 + \frac{1}{2}x + 4$:
+\begin{align*}
+f(1) &= -2(1)^4 + \frac{1}{2}(1)^2 + \frac{1}{2}(1) + 4 \\
+&= -2 + \frac{1}{2} + \frac{1}{2} + 4 = 3
+\end{align*}
 
+\begin{align*}
+f(-1) &= -2(-1)^4 + \frac{1}{2}(-1)^2 + \frac{1}{2}(-1) + 4 \\
+&= -2 + \frac{1}{2} - \frac{1}{2} + 4 = 2
+\end{align*}
 
-\end{document}
+\begin{align*}
+f(0) &= -2(0)^4 + \frac{1}{2}(0)^2 + \frac{1}{2}(0) + 4 = 4
+\end{align*}
+
+So $f(x)$ passes through all three points. \\
+
+For $g_1(x) = x^4 + 2x^3 - x^2 - 2x$:
+\begin{align*}
+g_1(1) &= 1 + 2 - 1 - 2 = 0 \\
+g_1(-1) &= 1 - 2 - 1 + 2 = 0 \\
+g_1(0) &= 0 + 0 - 0 - 0 = 0
+\end{align*}
+
+For $g_2(x) = x^4 - 2x^3 - x^2 + 2x$:
+\begin{align*}
+g_2(1) &= 1 - 2 - 1 + 2 = 0 \\
+g_2(-1) &= 1 + 2 - 1 - 2 = 0 \\
+g_2(0) &= 0 - 0 - 0 + 0 = 0
+\end{align*}
+
+Both $g_1(x)$ and $g_2(x)$ are zero at $x = 0, 1, -1$. \\
+
+Let $\mathcal{P}_4$ be the vector space of all polynomials of degree at most 4, which has dimension 5. \\
+
+Let $\mathcal{P}$ be the subspace of $\mathcal{P}_4$ consisting of polynomials that pass through $(1,3), (-1,2), (0,4)$. For any polynomial $P(x) \in \mathcal{P}$, let $Q(x) = P(x) - f(x)$. Since both $P(x)$ and $f(x)$ pass through the three given points, $Q(x)$ has roots at $x = 0, 1, -1$. \\
+
+Therefore, $Q(x)$ can be written as $x(x-1)(x+1)R(x)$ where $R(x)$ is a polynomial of degree at most 1, so we let $Q(x) = x(x^2-1)(ax+b)$ for some constants $a,b \in \mathbb{R}$. \\
+
+Expanding $Q(x)$: $Q(x) = ax^4 + bx^3 - ax^2 - bx$ \\
+
+Since:
+\begin{align*}
+g_1(x) &= x^4 + 2x^3 - x^2 - 2x \\
+g_2(x) &= x^4 - 2x^3 - x^2 + 2x
+\end{align*}
+
+We want to find $c_1, c_2$ such that:
+\begin{align*}
+[a, b, -a, -b] = c_1[1, 2, -1, -2] + c_2[1, -2, -1, 2]
+\end{align*}
+
+This gives us the system:
+\begin{align*}
+a &= c_1 + c_2 \\
+b &= 2c_1 - 2c_2 \\
+-a &= -c_1 - c_2 \\
+-b &= -2c_1 + 2c_2
+\end{align*}
+
+The third and fourth equations are redundant. From the first equation:
+$$c_1 = a - c_2$$
+
+Substituting into the second:
+$$b = 2(a - c_2) - 2c_2 = 2a - 4c_2$$
+
+Solving for $c_2$: $c_2 = \frac{2a - b}{4} = \frac{a - b/2}{2}$
+Then: $c_1 = a - c_2 = a - \frac{a - b/2}{2} = \frac{a + b/2}{2}$ \\
+
+Therefore, $Q(x) = \frac{a + b/2}{2}g_1(x) + \frac{a - b/2}{2}g_2(x)$, which proves that any polynomial $P(x)$ of degree at most 4 passing through the three given points can be expressed as:
+$$P(x) = f(x) + c_1g_1(x) + c_2g_2(x)$$
+for some constants $c_1, c_2 \in \mathbb{R}$.
 
 \end{document}
