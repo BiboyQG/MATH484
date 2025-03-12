@@ -153,7 +153,49 @@ Hint: It probably takes less time to guess the password than to solve this quest
 
 \textbf{Solution:} \\
 
+The Lagrange interpolation formula gives us:
+$$P(x) = \sum_{j=0}^{2} y_j L_j(x)$$
 
+where $L_j(x)$ are:
+$$L_j(x) = \prod_{0 \leq k \leq 2, k \neq j} \frac{x - x_k}{x_j - x_k}$$
+
+So we have:
+\begin{align*}
+L_0(x) &= \frac{(x - x_1)(x - x_2)}{(x_0 - x_1)(x_0 - x_2)} = \frac{(x - 2270)(x - 227)}{(229 - 2270)(229 - 227)} = \frac{(x - 2270)(x - 227)}{(-2041)(2)} \\
+L_1(x) &= \frac{(x - x_0)(x - x_2)}{(x_1 - x_0)(x_1 - x_2)} = \frac{(x - 229)(x - 227)}{(2270 - 229)(2270 - 227)} = \frac{(x - 229)(x - 227)}{(2041)(2043)} \\
+L_2(x) &= \frac{(x - x_0)(x - x_1)}{(x_2 - x_0)(x_2 - x_1)} = \frac{(x - 229)(x - 2270)}{(227 - 229)(227 - 2270)} = \frac{(x - 229)(x - 2270)}{(-2)(-2043)}
+\end{align*}
+
+And the polynomial is:
+\begin{align*}
+P(x) &= 119114 \cdot L_0(x) + (-289086) \cdot L_1(x) + 936714 \cdot L_2(x)
+\end{align*}
+
+Observe that $P(0)$ = C, therefore:
+\begin{align*}
+L_0(0) &= \frac{(0 - 2270)(0 - 227)}{(-2041)(2)}\\
+L_1(0) &= \frac{(0 - 229)(0 - 227)}{(2041)(2043)}\\
+L_2(0) &= \frac{(0 - 229)(0 - 2270)}{(-2)(2043)}
+\end{align*}
+
+And we have:
+\begin{align*}
+P(0) &= 119114 \cdot L_0(0) + (-289086) \cdot L_1(0) + 936714 \cdot L_2(0) \\
+&= 104130914
+\end{align*}
+
+Therefore, the constant term is $104130914$, which has 9 digits, so we add a leading zero to make it $0104130914$. \\
+
+Using the given code:
+\begin{align*}
+01 &\rightarrow a\\
+04 &\rightarrow d\\
+13 &\rightarrow m\\
+09 &\rightarrow i\\
+14 &\rightarrow n
+\end{align*}
+
+Therefore, the password is "admin".
 
 \newpage
 
