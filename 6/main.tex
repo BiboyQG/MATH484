@@ -10,8 +10,8 @@
 
 \pagestyle{fancy}
 \fancyhead[L]{Banghao Chi}
-\fancyhead[C]{Homework 5}
-\fancyhead[R]{2nd Mar}
+\fancyhead[C]{Homework 6}
+\fancyhead[R]{11th Mar}
 
 \fancyfoot[C]{\thepage}
 
@@ -61,7 +61,35 @@ This question appeared on a previous exam. It is an example of a question that c
 
 \textbf{Solution:} \\
 
+($\Rightarrow$) Since $f$ is convex, we have:
+\begin{align*}
+f(0) &\leq \frac{1}{2}f(1) + \frac{1}{2}f(-1)\\
+0 &\leq \frac{1}{2} \cdot m_1 \cdot 1 + \frac{1}{2} \cdot m_2 \cdot (-1)\\
+0 &\leq \frac{1}{2}m_1 - \frac{1}{2}m_2\\
+0 &\leq m_1 - m_2\\
+m_2 &\leq m_1
+\end{align*}
 
+($\Leftarrow$) Since:
+\begin{itemize}
+    \item When $x \geq 0$ and $m_1 \geq m_2$: $m_1x \geq m_2x$, so $\max(m_1x, m_2x) = m_1x$
+    \item When $x < 0$ and $m_1 \geq m_2$: $m_1x \leq m_2x$, so $\max(m_1x, m_2x) = m_2x$
+\end{itemize}
+
+We can express $f(x)$ as:
+$$f(x) = \max(m_1x, m_2x)$$
+
+For $f_1(x) = m_1x$ and $f_2(x) = m_2x$, since $f'_{i}(x) = m_i$ is constant, $f''_i(x) = 0 \geq 0$ for all $i \in \{1, 2\}$. Therefore, $f_1(x)$ and $f_2(x)$ are convex functions. \\
+
+According to the theorem, if $C \subseteq \mathbb{R}^n$ is a convex set and $f_1, \ldots, f_k : C \to \mathbb{R}$ are convex functions, then $f = \max_{1 \leq i \leq k} f_i$ is convex. \\
+
+In our case:
+\begin{itemize}
+    \item $C = \mathbb{R}$ is a convex set
+    \item $f_1(x) = m_1x$ and $f_2(x) = m_2x$ are both convex functions
+    \item $f(x) = \max(f_1(x), f_2(x))$
+\end{itemize}
+Therefore, by the theorem, $f$ is convex when $m_1 \geq m_2$.
 
 \newpage
 
