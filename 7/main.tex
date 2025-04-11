@@ -29,7 +29,47 @@ is minimized. (In other words, $f$ approximates the data points $(-1,1)$, $(0,0)
 
 \textbf{Solution:} \\
 
+\begin{align*}
+f(-1) &= -a - b \\
+f(0) &= 0 \\
+f(1) &= a + b \\
+f(2) &= 2a + 8b
+\end{align*}
 
+Therefore, we have matrix $A$:
+\begin{align*}
+A = \begin{pmatrix} 
+-1 & -1 \\ 
+0 & 0 \\ 
+1 & 1 \\ 
+2 & 8
+\end{pmatrix}
+\end{align*}
+
+The target values form vector $\mathbf{b}$:
+\begin{align*}
+\mathbf{b} = \begin{pmatrix} 
+1 \\ 
+0 \\ 
+1 \\ 
+3
+\end{pmatrix}
+\end{align*}
+
+Since the error at $x = -1$ is given three times as much weight, the weight matrix $H$ is:
+\begin{align*}
+H = \begin{pmatrix} 
+3 & 0 & 0 & 0 \\ 
+0 & 1 & 0 & 0 \\ 
+0 & 0 & 1 & 0 \\ 
+0 & 0 & 0 & 1
+\end{pmatrix}
+\end{align*}
+
+According to the theorem, the solution is:
+\begin{align*}
+\mathbf{x}^* = (A^T H A)^{-1} A^T H \mathbf{b}
+\end{align*}
 
 \newpage
 
