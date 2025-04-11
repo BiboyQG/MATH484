@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+
+\DeclareMathOperator{\R}{\mathbb R}
+
+\pagestyle{fancy}
+\fancyhead[L]{Banghao Chi}
+\fancyhead[C]{Homework 7}
+\fancyhead[R]{11th Apr}
+
+\fancyfoot[C]{\thepage}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\begin{document}
+
+\section*{Exercise 1}
+(5 points) Let $f$ be a function of the form $f(x) = ax + bx^3$, where $a, b \in \mathbb{R}$. Suppose that $a$ and $b$ are chosen so that
+\begin{align*}
+\text{error} = 3(f(-1) - 1)^2 + (f(0) - 0)^2 + (f(1) - 1)^2 + (f(2) - 3)^2
+\end{align*}
+is minimized. (In other words, $f$ approximates the data points $(-1,1)$, $(0,0)$, $(1,1)$, $(2,3)$, so that the error squared at $x = -1$ is given three times as much weight as other errors squared.) Write a matrix expression for the pair $(a, b)$ that minimizes the \text{error} expression. \\
+
+\textbf{Solution:} \\
+
+
+
+\newpage
+
+\section*{Exercise 2}
+(10 points) Consider the convex program
+\begin{align*}
+(P_c) \begin{cases}
+\underset{x,y\in\mathbb{R}}{\text{minimize}} & x + y \\
+\text{subject to} & y^2 - x \leq 0, \\
+& x - y - c \leq 0.
+\end{cases}
+\end{align*}
+For which values of $c$ is $P_c$ superconsistent? \\
+
+\textbf{Solution:} \\
+
+
+
+\newpage
+
+\section*{Exercise 3}
+(10 points) For the convex program
+\begin{align*}
+(P) \begin{cases}
+\underset{x\in\mathbb{R}}{\text{minimize}} & x^2 \\
+\text{subject to} & x^2 \leq 0, \\
+& -x \leq 0
+\end{cases}
+\end{align*}
+find the domain of the function $MP(z_1, z_2)$. Then, express the function $MP(z_1, z_2)$ explicitly in terms of $z_1$ and $z_2$. \\
+
+\textbf{Solution:} \\
+
+
+
+\newpage
+
+\section*{Exercise 4}
+(15 points) Let $P$ be a superconsistent convex program in standard form.
+\begin{itemize}
+\item Explain why if $MP(\mathbf{z})$ is differentiable at $\mathbf{z} = \mathbf{0}$, then $\boldsymbol{\lambda}^* = -\nabla MP(\mathbf{0})$ is a sensitivity vector of $P$. (In fact, $\boldsymbol{\lambda}^* = -\nabla MP(\mathbf{0})$ is the only sensitivity vector.)
+\item Find a sensitivity vector $\boldsymbol{\lambda}^*$ for the program
+\begin{align*}
+(P) \begin{cases}
+\underset{x\in\mathbb{R}}{\text{minimize}} & (x - 1)^2 + (y - 3)^2 \\
+\text{subject to} & x \leq 0, \\
+& y \leq 0
+\end{cases}
+\end{align*}
+\end{itemize}
+
+\textbf{Solution:} \\
+
+
+
+\end{document}
