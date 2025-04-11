@@ -175,6 +175,53 @@ z_2^2, & \text{if } z_2 < 0
 
 \textbf{Solution:} \\
 
+Given that $MP(\mathbf{z})$ is differentiable at $\mathbf{z} = \mathbf{0}$, we can consider small perturbations $\Delta \mathbf{z}$. By the definition of differentiability:
+\begin{align*}
+MP(\Delta\mathbf{z}) = MP(\mathbf{0} + \Delta\mathbf{z}) \approx MP(\mathbf{0}) + \nabla MP(\mathbf{0})^{\top} \Delta\mathbf{z}
+\end{align*}
 
+This gives us:
+\begin{align*}
+MP(\mathbf{0} + \Delta\mathbf{z}) - MP(\mathbf{0}) \approx \nabla MP(\mathbf{0})^{\top} \Delta\mathbf{z}
+\end{align*}
+
+If we define $\boldsymbol{\lambda}^* := -\nabla MP(\mathbf{0})$, then:
+\begin{align*}
+MP(\mathbf{0} + \Delta\mathbf{z}) - MP(\mathbf{0}) \approx -\boldsymbol{\lambda}^{*\top} \Delta\mathbf{z}
+\end{align*}
+
+By definition, this satisfies the definition of a sensitivity vector. Therefore, $\boldsymbol{\lambda}^* = -\nabla MP(\mathbf{0})$ is one possible sensitivity vector for the problem P. \\
+
+For the program:
+\begin{align*}
+(P) \begin{cases}
+\underset{x,y\in\mathbb{R}}{\text{minimize}} & (x - 1)^2 + (y - 3)^2 \\
+\text{subject to} & x \leq 0 \\
+& y \leq 0
+\end{cases}
+\end{align*}
+
+$P(z_1, z_2)$ is:
+\begin{align*}
+\text{minimize} \quad & (x - 1)^2 + (y - 3)^2 \\
+\text{subject to} \quad & x \leq z_1 \\
+& y \leq z_2
+\end{align*}
+
+For $\mathbf{z} = (z_1, z_2)$ near the origin (for $z_1 < 1$ and $z_2 < 3$), the optimal solution is $(z_1, z_2)$, and:
+\begin{align*}
+MP(\mathbf{z}) = (z_1 - 1)^2 + (z_2 - 3)^2
+\end{align*}
+\begin{align*}
+\frac{\partial MP}{\partial z_1}(0) &= 2(0 - 1) = -2 \\
+\frac{\partial MP}{\partial z_2}(0) &= 2(0 - 3) = -6
+\end{align*}
+
+So $\nabla MP(\mathbf{0}) = (-2, -6)$. \\
+
+Therefore, the sensitivity vector is:
+\begin{align*}
+\boldsymbol{\lambda}^* = -\nabla MP(\mathbf{0}) = (2, 6)
+\end{align*}
 
 \end{document}
