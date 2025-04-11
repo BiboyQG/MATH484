@@ -118,9 +118,44 @@ Therefore, $P_c$ is superconsistent if and only if $c > -\frac{1}{4}$.
 \end{align*}
 find the domain of the function $MP(z_1, z_2)$. Then, express the function $MP(z_1, z_2)$ explicitly in terms of $z_1$ and $z_2$. \\
 
-\textbf{Solution:} \\
+\textbf{Solution:}
 
+\begin{itemize}
+    \item From the first constraint $x^2 \leq z_1$:
+    \begin{itemize}
+        \item Since $x^2 \geq 0$ for all $x \in \mathbb{R}$, $z_1 \geq 0$, and the constraint becomes $-\sqrt{z_1} \leq x \leq \sqrt{z_1}$.
+    \end{itemize}
+    \item From the second constraint $-x \leq z_2$:
+    \begin{itemize}
+        \item This is equivalent to $x \geq -z_2$.
+    \end{itemize}
+\end{itemize}
 
+\text{For the problem to be feasible, the intervals $[-\sqrt{z_1}, \sqrt{z_1}]$ and $[-z_2, \infty)$ must intersect.} \\
+
+\text{So we have $z_2 \geq -\sqrt{z_1}$.} \text{Therefore, the domain of $MP(z_1, z_2)$ is:} $$\{(z_1, z_2) : z_1 \geq 0, z_2 \geq -\sqrt{z_1}\}$$
+
+\text{For $(z_1, z_2)$ in the domain, since we're minimizing $x^2$, we want $x$ to be as close to 0 as possible.}
+
+\begin{itemize}
+    \item Case 1: If $z_2 \geq 0$, then $-z_2 \leq 0$.
+    \begin{itemize}
+        \item Since 0 is in the feasible region, the minimum value is $x^2 = 0$ at $x = 0$.
+    \end{itemize}
+    \item Case 2: If $z_2 < 0$, then $-z_2 > 0$.
+    \begin{itemize}
+        \item The minimum value of $x^2$ would occur at $x = -z_2$.
+    \end{itemize}
+\end{itemize}
+
+\text{Therefore:}
+\begin{align*}
+MP(z_1, z_2) = 
+\begin{cases}
+0, & \text{if } z_2 \geq 0 \\
+z_2^2, & \text{if } z_2 < 0
+\end{cases}
+\end{align*}
 
 \newpage
 
