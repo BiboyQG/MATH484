@@ -23,7 +23,7 @@
 
 \pagestyle{fancy}
 \fancyhead[L]{Banghao Chi}
-\fancyhead[C]{Homework 8}
+\fancyhead[C]{Homework 9}
 \fancyhead[R]{18th Apr}
 
 \fancyfoot[C]{\thepage}
@@ -249,6 +249,113 @@ i.e.\ the closest point to $\mathbf a$ on (or in) the closed unit ball.
 
 \textbf{Solution:} \\
 
+\begin{enumerate}
+\item  Feasible region  
+      The four constraints can be rewritten as  
+      \[
+      \begin{aligned}
+      &y\ge 1, \qquad\qquad\qquad
+      &&y\ge 2-2x,\\
+      &y\le 9-x^{2},\qquad
+      &&y\ge x^{2}-9.
+      \end{aligned}
+      \] 
+      The last two inequalities describe the vertical strip between the two parabolas
+      \(y=9-x^{2}\) (opening downward) and \(y=x^{2}-9\) (opening upward), intersecting at
+      \((\pm 3,0)\).
+      Intersecting this strip with the half–planes \(y\ge 1\) and
+      \(y\ge 2-2x\) leaves a convex, bounded set whose lowest point lies on
+      the line \(y=1\).  
+      On that line feasibility requires \(2x+1\ge 2\), i.e.\ \(x\ge \tfrac12\).
+      The objective \(f(x,y)=x^{2}+y^{2}\) restricted to the boundary segment
+      \((x,1)\;(x\ge\tfrac12)\) is \(x^{2}+1\), increasing in \(x\).
+      Hence the minimiser is  
+      \[
+      (x^{*},y^{*})=\left(\tfrac12,\,1\right), \qquad f^{*}=1+\Bigl(\tfrac12\Bigr)^{2}= \tfrac54 .
+      \]
+
+\item  Active constraints and signs of the multipliers  
+      At \((x^{*},y^{*})\) the first two constraints are tight:
+      \(y^{*}-1=0\) and \(-2x^{*}-y^{*}+2=0\).
+      The two quadratic constraints are slack:
+      \(x^{*\,2}+y^{*}-9=-7.75<0\) and \(x^{*\,2}-y^{*}-9=-9.75<0\).
+      Complementary slackness therefore forces  
+      \[
+      \lambda_{1}^{*}>0,\quad\lambda_{2}^{*}>0,\quad
+      \lambda_{3}^{*}=0,\quad\lambda_{4}^{*}=0 .
+      \]
+
+\item  Sensitivity vector via the gradient form of KKT  
+      Let 
+      \[
+      g_{1}=1-y,\;
+      g_{2}=-2x-y+2,\;
+      g_{3}=x^{2}+y-9,\;
+      g_{4}=x^{2}-y-9 .
+      \]
+      Stationarity requires  
+      \[
+      \nabla f(x^{*},y^{*})+\sum_{i=1}^{4}\lambda_{i}^{*}\nabla g_{i}(x^{*},y^{*})=0 .
+      \]
+      Using \(\nabla f(1/2,1)=(1,2)\) and  
+      \[
+      \nabla g_{1}=(0,-1),\;
+      \nabla g_{2}=(-2,-1),\;
+      \nabla g_{3}=(1,1),\;
+      \nabla g_{4}=(1,-1)
+      \]
+      together with \(\lambda_{3}^{*}=\lambda_{4}^{*}=0\) gives the linear system
+      \[
+      \begin{aligned}
+      1-2\lambda_{2}^{*} &=0,\\
+      2-\lambda_{1}^{*}-\lambda_{2}^{*} &=0 .
+      \end{aligned}
+      \]
+      Solving yields  
+      \[
+      (\lambda_{1}^{*},\lambda_{2}^{*},\lambda_{3}^{*},\lambda_{4}^{*})
+      =\bigl(\tfrac32,\;\tfrac12,\;0,\;0\bigr).
+      \]
+
+\item  Lagrangian  
+      \[
+      L(x,y,\lambda_{1},\lambda_{2},\lambda_{3},\lambda_{4})
+      =x^{2}+y^{2}
+      +\lambda_{1}(1-y)
+      +\lambda_{2}(-2x-y+2)
+      +\lambda_{3}(x^{2}+y-9)
+      +\lambda_{4}(x^{2}-y-9).
+      \]
+
+\item  Saddle‑point (min–max) property  
+      For any \((x,y)\in\mathbb R^{2}\) and any multipliers \(\lambda_{i}\ge 0\),
+      primal feasibility of \((x^{*},y^{*})\) gives \(g_{i}(x^{*},y^{*})\le 0\).
+      Hence, fixing \((\lambda_{i})\),
+      \[
+      L(x^{*},y^{*},\lambda_{1},\dots,\lambda_{4})
+      =f^{*}+\sum_{i}\lambda_{i}g_{i}(x^{*},y^{*})
+      \le f^{*}=L(x^{*},y^{*},\lambda_{1}^{*},\dots,\lambda_{4}^{*}),
+      \]
+      because the active constraints have the largest non‑positive
+      coefficients \(g_{i}(x^{*},y^{*})\).
+      Conversely, for any \((x,y)\),
+      weak duality gives  
+      \[
+      L(x,y,\lambda_{1}^{*},\dots,\lambda_{4}^{*})
+      \ge f(x^{*},y^{*}) = L(x^{*},y^{*},\lambda_{1}^{*},\dots,\lambda_{4}^{*}),
+      \]
+      because \((\lambda_{i}^{*})\) is dual‑optimal.  
+      Therefore  
+      \[
+      L(x^{*},y^{*},\lambda_{1},\lambda_{2},\lambda_{3},\lambda_{4})
+      \le
+      L(x^{*},y^{*},\lambda_{1}^{*},\lambda_{2}^{*},\lambda_{3}^{*},\lambda_{4}^{*})
+      \le
+      L(x,y,\lambda_{1}^{*},\lambda_{2}^{*},\lambda_{3}^{*},\lambda_{4}^{*}),
+      \]
+      establishing the required inequality.
+\end{enumerate}
+
 
 \newpage
 
@@ -270,6 +377,6 @@ If you want to use operations involving matrices with $n$ rows or $n$ columns, y
 
 \textbf{Solution:} \\
 
-
+Skipping this question.
 
 \end{document}
