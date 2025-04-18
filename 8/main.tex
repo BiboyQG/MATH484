@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{hyperref}
+
+\DeclareMathOperator{\R}{\mathbb R}
+\newcommand{\mb}{\mathbf}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\DeclareMathOperator{\uu}{\mathbf u}
+\DeclareMathOperator{\vv}{\mathbf v}
+\DeclareMathOperator{\g}{\mathbf g}
+\DeclareMathOperator{\x}{\mathbf x}
+\DeclareMathOperator{\y}{\mathbf y}
+\DeclareMathOperator{\z}{\mathbf z}
+\def\epsilon{\varepsilon}
+
+\pagestyle{fancy}
+\fancyhead[L]{Banghao Chi}
+\fancyhead[C]{Homework 8}
+\fancyhead[R]{18th Apr}
+
+\fancyfoot[C]{\thepage}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\begin{document}
+
+\noindent
+Due \textbf{Friday, April 18}, on Gradescope at 11:59pm Central Time. \\
+See the syllabus for expectations regarding homework assignments. \\
+The assignment is worth 40 points. Assignments typed in in \LaTeX will receive a $4$ point bonus. \\ \\
+Give a full written solution to each of the following questions:
+
+\section*{Exercise 1}
+(28 points) Use the gradient form of the KKT theorem to solve the following problems. (In some cases, you may have to change the form of the problem before using the theorem.)
+\begin{itemize}
+\item \begin{equation*}
+(P)\qquad\left\{\begin{aligned}
+& \underset{  (x,y) \in \R^2}{\text{minimize}}
+& & x^2 + 2y^2 \\
+& \text{subject to} && x-y+1 \leq 0 \\
+\end{aligned}\right.
+\end{equation*}
+\item \begin{equation*}
+(P)\qquad\left\{\begin{aligned}
+& \underset{  (x,y) \in \R^2}{\text{minimize}}
+& & x+y \\
+& \text{subject to} && \phantom{xxxxx} x^2 - y \leq 0 \\
+& && -2x-y+8 \leq 0
+\end{aligned}\right.
+\end{equation*}
+\item Find the vector $(x_1, \dots, x_n)$ that maximizes $x_1 + \dots + x_n$ subject to $x_1^q + \dots + x_n^q = 1$, where $q \geq2$ is even.
+\item Let $\mb a \in \R^n$ satisfy $\|\mb a\| \geq 1$. Show that the closest vector to $\mb a$ in the closed unit ball $\{\mb z \in \R^n: \|\mb z \| \leq 1\}$ is $\frac{\mb a}{\|\mb a\|}$.
+\end{itemize}
+
+\textbf{Solution:} \\
+
+
+
+\newpage
+
+\section*{Exercise 2}
+(12 points) Consider the convex program 
+ \begin{equation*}
+(P)\qquad\left\{\begin{aligned}
+& \underset{  (x,y) \in \R^2}{\text{minimize}}
+&  x^2 + y^2 \\
+& \text{subject to} & 1-y \leq 0 \\
+ && -2x-y +2 \leq 0 \\
+ && x^2 + y - 9 \leq 0 \\
+ && x^2 - y - 9 \leq 0
+\end{aligned}\right.
+\end{equation*}
+\begin{itemize}
+\item Sketch the feasibility region, and use this sketch to find the solution $(x^*,y^*)$ to $P$.
+\item Let $(\lambda_1^*,\dots,\lambda_4^*)$ be a sensitivity vector of $P$. By considering the feasibility region and the objective function, explain which of $\lambda_1^*, \dots, \lambda_4^*$ should be zero and which should be positive.
+\item Using the gradient form of the KKT theorem along with the fact that you know the solution to $P$, find a sensitivity vector of $P$.
+\item Write the Lagrangian $L(x,y,\lambda_1, \lambda_2,\lambda_3,\lambda_4)$ of $P$.
+\item Show that for all $(x,y) \in \R^2$ and nonnnegative $(\lambda_1,\dots,\lambda_4)$,
+\[L(x^*,y^*,\lambda_1,\lambda_2,\lambda_3,\lambda_4) \leq L(x^*,y^*,\lambda_1^*,\lambda_2^*,\lambda_3^*,\lambda_4^*) \leq L(x,y,\lambda_1^*,\lambda_2^*,\lambda_3^*,\lambda_4^*).\]
+\end{itemize}
+
+\textbf{Solution:} \\
+
+
+\newpage
+
+\section*{Exercise 3 (Extra Credit)}
+(10 points, extra credit)
+This question comes from a set of job interview questions for a data science position. It can be solved using ideas from Chapter 4.
+
+Let $\mb a, \mb b, \mb w$ be vectors of length $n$ with positive entries. Design an algorithm that prints the floating point vector $\mb x = (x_1, \dots, x_n) \in \R^n$ maximizing
+\[\sum_{i=1}^n ( a_i x_i - w_i x_i^2 )\]
+subject to $\mb b \dotp \mb x = 0$, and subject to the following constraints:
+\begin{itemize}
+\item $\mb a$, $\mb b$, and $\mb w$ are stored in read-only memory.
+\item You can print values that you have stored in memory, but you cannot access printed values if the memory from which they have been printed has been overwritten.
+\item You are only allowed to store $O(1)$ bits of memory. (You have enough memory to store constantly many floating point numbers, but you don't have enough memory to store an $n$-length vector.)
+\end{itemize}
+To give you a better idea of the question's constraints, consider the following. If you want to consider a sum like $\mb b + \mb w$, you cannot store the sum vector in memory, because it requires $\Omega(n)  \gg O(1)$ bits. However, you can print the vector $\mb b + \mb w$ as follows. For $i=1$ to $n$, copy $b_i$ and $w_i$ to memory, store the sum $b_i + w_i$ in a third area of memory, print the sum, and then delete all stored values. This process will print all coordinates of $\mb b + \mb w$, one by one. Since you only need to store three values at a time, this process takes $O(1)$ bits of memory. However, after the process is done, you cannot look up values of the sum $\mb b + \mb w$, and if you want to know what they are, you need to compute them again.
+
+If you want to use operations involving matrices with $n$ rows or $n$ columns, you need to be very careful about how you do these operations, because such a matrix cannot be stored in memory. Also, if you want to solve a system of equations involving many variables, you need to be careful about how many variables you are storing at a time. If your system has $\Omega(n)$ variables, then that is too many to store in memory at once.
+
+\textbf{Solution:} \\
+
+
+
+\end{document}
