@@ -33,12 +33,6 @@
 
 \begin{document}
 
-\noindent
-Due \textbf{Friday, April 18}, on Gradescope at 11:59pm Central Time. \\
-See the syllabus for expectations regarding homework assignments. \\
-The assignment is worth 40 points. Assignments typed in in \LaTeX will receive a $4$ point bonus. \\ \\
-Give a full written solution to each of the following questions:
-
 \section*{Exercise 1}
 (28 points) Use the gradient form of the KKT theorem to solve the following problems. (In some cases, you may have to change the form of the problem before using the theorem.)
 \begin{itemize}
@@ -63,6 +57,171 @@ Give a full written solution to each of the following questions:
 
 \textbf{Solution:} \\
 
+\begin{enumerate}
+
+\item
+\[
+\begin{aligned}
+  &\min_{(x,y)\in\mathbb R^{2}} && f(x,y)=x^{2}+2y^{2}\\
+  &\text{s.t.}                 && g(x,y)=x-y+1\le 0 .
+\end{aligned}
+\]
+
+Because $f$ is convex and $g$ is affine, Slater’s condition holds and the KKT
+conditions are necessary and sufficient.  
+Introduce a multiplier $\lambda\ge 0$ and form the Lagrangian
+$L(x,y,\lambda)=x^{2}+2y^{2}+\lambda(x-y+1)$.
+
+\[
+\nabla_{x,y}L=
+\begin{pmatrix}
+2x+\lambda\\[2pt]
+4y-\lambda
+\end{pmatrix}=0
+\quad\Longrightarrow\quad
+x=-\frac{\lambda}{2},\qquad
+y=\frac{\lambda}{4}.
+\]
+
+Complementary slackness gives $\lambda(x-y+1)=0$.
+The point $(0,0)$ (obtained when $\lambda=0$) violates $x-y+1\le0$,  
+so $\lambda>0$ and the constraint is active:
+
+\[
+x-y+1=0\;\Longrightarrow\;
+-\frac{\lambda}{2}-\frac{\lambda}{4}+1=0
+\;\Longrightarrow\;
+\lambda=\frac43 .
+\]
+
+Hence
+\[
+x^{*}=-\frac23,\qquad
+y^{*}= \frac13,\qquad
+f^{*}=x^{*2}+2y^{*2}= \frac23 .
+\]
+
+\item
+\[
+\begin{aligned}
+  &\min_{(x,y)\in\mathbb R^{2}} && f(x,y)=x+y\\
+  &\text{s.t.}                 && g_{1}(x,y)=x^{2}-y\le 0,\\
+  &                            && g_{2}(x,y)=-2x-y+8\le 0 .
+\end{aligned}
+\]
+
+Let multipliers $\lambda_{1},\lambda_{2}\ge 0$.
+Stationarity:
+
+\[
+\nabla f+\lambda_{1}\nabla g_{1}+\lambda_{2}\nabla g_{2}=0
+\Longrightarrow
+\begin{cases}
+1+2\lambda_{1}x-2\lambda_{2}=0,\\
+1-\lambda_{1}-\lambda_{2}=0.
+\end{cases}
+\tag{S}
+\]
+
+\paragraph{Case $\lambda_{1}>0$.}
+Then $g_{1}=0$ so $y=x^{2}$.  
+From (S) we obtain $\lambda_{2}=1-\lambda_{1}$ and
+$2\lambda_{1}(x+1)=1$.  If $\lambda_{2}>0$ the second constraint is
+active:
+
+\[
+x^{2}+2x-8=0 \quad\Longrightarrow\quad x=2\ (\text{or }x=-4).
+\]
+
+Only $x=2$ satisfies $2\lambda_{1}(x+1)=1$ (it gives $\lambda_{1}=1/6$,
+$\lambda_{2}=5/6>0$).  
+Thus $(x^{*},y^{*})=(2,4)$ with objective value $f^{*}=6$.
+
+\paragraph{All other cases.}
+Either $\lambda_{1}=0$ (impossible by stationarity) or
+$\lambda_{1}>0$ but $\lambda_{2}=0$ (gives an infeasible point).  
+Hence the unique KKT point $(2,4)$ is the global minimizer.
+
+\item
+\[
+\max_{\mathbf x\in\mathbb R^{n}}\;
+\Bigl(\sum_{i=1}^{n}x_{i}\Bigr)
+\quad\text{s.t.}\quad
+\sum_{i=1}^{n}x_{i}^{\,q}=1,
+\qquad q\ge 2\text{ even}.
+\]
+
+The feasible set is compact, the constraint is smooth, and Slater holds.
+Introduce a multiplier $\lambda$ (no sign constraint: the equality
+is moved to the RHS of the Lagrangian).
+
+\[
+L(\mathbf x,\lambda)=
+\sum_{i=1}^{n}x_{i}-\lambda\Bigl(\sum_{i=1}^{n}x_{i}^{\,q}-1\Bigr),
+\quad
+\partial_{x_{i}}L=1-\lambda qx_{i}^{\,q-1}=0.
+\]
+
+Thus every $x_{i}$ is identical:
+
+\[
+x_{1}=x_{2}=\dots=x_{n}=c
+\quad\Longrightarrow\quad
+nc^{\,q}=1\;\Longrightarrow\;c=n^{-1/q}.
+\]
+
+The multiplier is $\lambda=\dfrac{n^{\,(q-1)/q}}{q}$ and
+
+\[
+x_{i}^{*}=n^{-1/q}\;(i=1,\dots,n),\qquad
+\max\; \sum x_{i}=n^{\,1-1/q} .
+\]
+
+(The value coincides with Hölder’s inequality upper bound, confirming
+optimality.)
+
+\item
+\[
+\min_{\mathbf z\in\mathbb R^{n}}
+\frac12\|\mathbf z-\mathbf a\|^{2}
+\quad\text{s.t.}\quad
+g(\mathbf z)=\|\mathbf z\|^{2}-1\le 0,
+\qquad\|\mathbf a\|\ge 1.
+\]
+
+Let $\lambda\ge 0$.  
+Stationarity:
+
+\[
+\mathbf z-\mathbf a+2\lambda\mathbf z=\mathbf 0
+\Longrightarrow
+(1+2\lambda)\mathbf z=\mathbf a
+\quad\Longrightarrow\quad
+\mathbf z=\frac{\mathbf a}{1+2\lambda}.
+\]
+
+\emph{Case $\lambda=0$.}  
+Then $\mathbf z=\mathbf a$ is feasible only if $\|\mathbf a\|\le 1$.  
+Here $\|\mathbf a\|\ge1$, so $\lambda>0$.
+
+\emph{Case $\lambda>0$ (constraint active).}  
+Complementary slackness forces $g(\mathbf z)=0$, i.e. $\|\mathbf z\|=1$:
+
+\[
+\bigl\|{\mathbf a}/{(1+2\lambda)}\bigr\|=1
+\;\Longrightarrow\;
+1+2\lambda=\|\mathbf a\|.
+\]
+
+Hence $\lambda=(\|\mathbf a\|-1)/2$ and
+
+\[
+\mathbf z^{*}=\dfrac{\mathbf a}{\|\mathbf a\|}.
+\]
+
+Therefore, the point $\mathbf a/\|\mathbf a\|$ is the unique minimiser,
+i.e.\ the closest point to $\mathbf a$ on (or in) the closed unit ball.
+\end{enumerate}
 
 
 \newpage
@@ -107,7 +266,7 @@ subject to $\mb b \dotp \mb x = 0$, and subject to the following constraints:
 \end{itemize}
 To give you a better idea of the question's constraints, consider the following. If you want to consider a sum like $\mb b + \mb w$, you cannot store the sum vector in memory, because it requires $\Omega(n)  \gg O(1)$ bits. However, you can print the vector $\mb b + \mb w$ as follows. For $i=1$ to $n$, copy $b_i$ and $w_i$ to memory, store the sum $b_i + w_i$ in a third area of memory, print the sum, and then delete all stored values. This process will print all coordinates of $\mb b + \mb w$, one by one. Since you only need to store three values at a time, this process takes $O(1)$ bits of memory. However, after the process is done, you cannot look up values of the sum $\mb b + \mb w$, and if you want to know what they are, you need to compute them again.
 
-If you want to use operations involving matrices with $n$ rows or $n$ columns, you need to be very careful about how you do these operations, because such a matrix cannot be stored in memory. Also, if you want to solve a system of equations involving many variables, you need to be careful about how many variables you are storing at a time. If your system has $\Omega(n)$ variables, then that is too many to store in memory at once.
+If you want to use operations involving matrices with $n$ rows or $n$ columns, you need to be very careful about how you do these operations, because such a matrix cannot be stored in memory. Also, if you want to solve a system of equations involving many variables, you need to be careful about how many variables you are storing at a time. If your system has $\Omega(n)$ variables, then that is too many to store in memory at once. \\
 
 \textbf{Solution:} \\
 
